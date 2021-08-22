@@ -27,15 +27,15 @@
 <meta property="og:site_name" content="CQmax-chen的个人博客">
 <meta property="og:description" content="Windows下ubuntu双系统安装为完成opencv+pytorch+pycharm实现图像识别。 系统安装准备1.UItralSO硬盘写入Ubuntu18.01.4.iso U盘（已格式化）中2.在windows硬盘中分离出50GB内存(40GB)3.windows系统下装双系统所需备条件；4.bios安全模式的禁用；5.Ubuntu的安装及分区； 使用设备及环境1.32GB移动U盘（已格式">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/08/22/ubuntu/images/QQ%E5%9B%BE%E7%89%8720210822111845.png">
-<meta property="og:image" content="http://example.com/2021/08/22/ubuntu/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2021-08-22_115431.png">
-<meta property="og:image" content="http://example.com/2021/08/22/ubuntu/images/QQ%E5%9B%BE%E7%89%8720210822131458.png">
-<meta property="og:image" content="http://example.com/2021/08/22/ubuntu/images/spare.jpg">
+<meta property="og:image" content="http://example.com/2021/08/22/ubuntu/images/ubuntuwrite.png">
+<meta property="og:image" content="http://example.com/2021/08/22/ubuntu/images/neicun.png">
+<meta property="og:image" content="http://example.com/2021/08/22/ubuntu/images/fast.png">
+<meta property="og:image" content="http://example.com/2021/08/22/ubuntu/images/spare_1.jpg">
 <meta property="article:published_time" content="2021-08-22T03:20:18.773Z">
-<meta property="article:modified_time" content="2021-08-22T05:39:15.258Z">
+<meta property="article:modified_time" content="2021-08-22T07:24:33.102Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/08/22/ubuntu/images/QQ%E5%9B%BE%E7%89%8720210822111845.png">
+<meta name="twitter:image" content="http://example.com/2021/08/22/ubuntu/images/ubuntuwrite.png">
   
   
 
@@ -95,16 +95,16 @@
 </code></pre>
 <h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><p> 1.载好并安装UItraiso软件： <a target="_blank" rel="noopener" href="https://cn.ultraiso.net/">https://cn.ultraiso.net/</a><br> 2.写入Ubuntu18.04.5ISO进U盘：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">.在UItaiso的工具栏点击文件按钮的下拉菜单中的打开下载好Ubuntu系统映像文件；</span></span><br><span class="line"><span class="number">2</span><span class="string">.选择启动-&gt;写入硬盘映像</span></span><br></pre></td></tr></table></figure>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./images/QQ%E5%9B%BE%E7%89%8720210822111845.png" alt="写入Ubuntu系统"><br>（这样Ubuntu系统启动盘就做好了）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./images/ubuntuwrite.png" alt="写入Ubuntu系统"><br>（这样Ubuntu系统启动盘就做好了）</p>
 <h2 id="给系统分配100GB内存空间"><a href="#给系统分配100GB内存空间" class="headerlink" title="给系统分配100GB内存空间"></a>给系统分配100GB内存空间</h2><p>在“此电脑”点击右键进入“管理”界面，到磁盘管理处，选择除C盘的其他分区，右键点击”压缩卷”</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2021-08-22_115431.png" alt="点击压缩卷"><br>1024MB就是1GB，按照此比例给划分好10240MB压出100GB内存。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./images/neicun.png" alt="点击压缩卷"><br>1024MB就是1GB，按照此比例给划分好10240MB压出100GB内存。</p>
 <h2 id="关闭快速启动"><a href="#关闭快速启动" class="headerlink" title="关闭快速启动"></a>关闭快速启动</h2><ul>
 <li>摁下“win”+’x’在弹出的菜单中选择电源选项</li>
 <li>在设置面板中选择“其他电源设置”进入电源管理；</li>
 <li>在左侧点击“选择电源按钮的功能”；</li>
 <li>查看关机设置中的启用快速启动是否关闭；若没有关闭，可以点击上方的“更改当前不可用设置”启用更改；</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./images/QQ%E5%9B%BE%E7%89%8720210822131458.png" alt="关闭快速启动"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./images/fast.png" alt="关闭快速启动"></p>
 <h2 id="关机，进入bios界面；"><a href="#关机，进入bios界面；" class="headerlink" title="关机，进入bios界面；"></a>关机，进入bios界面；</h2><ul>
 <li>在开机时重复按下（不同电脑的按键不同DELL的时F12）F2键进入bios界面；</li>
 <li>进入bios界面后，左右方向键移到boot菜单下</li>
@@ -120,7 +120,7 @@
 <li>选择安装方式，选择something else，进入自定义安装方式；</li>
 <li>进入硬盘，安装系统引导项的位置，及内存分配；</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./images/spare.jpg" alt="100GB按照此比例安装"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./images/spare_1.jpg" alt="100GB按照此比例安装"></p>
 <p> 分配好内存之后，就直接安装就好了，剩下的，都是无关紧要的选项，按照需求来选择；</p>
 
 
