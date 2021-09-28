@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>web前端学习（二） - CQmax-chen的个人博客</title>
+
+  
+    <meta name="description" content="欢迎来到我的博客 我是CQmax您可以通过邮箱： &amp;#49;&amp;#48;&amp;#x35;&amp;#x30;&amp;#48;&amp;#56;&amp;#x37;&amp;#x31;&amp;#x36;&amp;#x34;&amp;#64;&amp;#113;&amp;#113;&amp;#x2e;&amp;#x63;&amp;#x6f;&amp;#109;Q Q：  1050087164进行联系我，或者在下方评论区留言，欢迎大家一起交流学习。 CSS样式作用CSS作为描绘HTML的一种样式语言，它为HTML语">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web前端学习（二）">
+<meta property="og:url" content="http://example.com/2021/09/28/web2/index.html">
+<meta property="og:site_name" content="CQmax-chen的个人博客">
+<meta property="og:description" content="欢迎来到我的博客 我是CQmax您可以通过邮箱： &amp;#49;&amp;#48;&amp;#x35;&amp;#x30;&amp;#48;&amp;#56;&amp;#x37;&amp;#x31;&amp;#x36;&amp;#x34;&amp;#64;&amp;#113;&amp;#113;&amp;#x2e;&amp;#x63;&amp;#x6f;&amp;#109;Q Q：  1050087164进行联系我，或者在下方评论区留言，欢迎大家一起交流学习。 CSS样式作用CSS作为描绘HTML的一种样式语言，它为HTML语">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T12:47:36.598Z">
+<meta property="article:modified_time" content="2021-09-28T12:47:36.645Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="CSS,CSS封装,盒子模型,flex容器">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">CQmax-chen的个人博客</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E6%A0%B7%E5%BC%8F"><span class="toc-text">CSS样式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-text">作用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-text">盒子模型</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex%E5%BC%B9%E6%80%A7%E5%AE%B9%E5%99%A8"><span class="toc-text">flex弹性容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-3"><span class="toc-text"></span></a></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" title="GitHub" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/08a41b181ce68.svg"/></a><a class="social" title="Music" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/cf1ae151f9e83.svg"/></a><a class="social" title="Comments" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/942ebbf1a4b91.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B0%8F%E4%B9%A6%E5%8C%A0-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-2021-08/">/小书匠/学习日记/2021-08</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2021-09-28T12:47:36.598Z">2021-09-28</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>web前端学习（二）</span></h1>
+<p>欢迎来到我的博客 <strong>我是CQmax</strong><br>您可以通过<br>邮箱： <strong><a href="mailto:&#49;&#48;&#x35;&#x30;&#48;&#56;&#x37;&#x31;&#x36;&#x34;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;">&#49;&#48;&#x35;&#x30;&#48;&#56;&#x37;&#x31;&#x36;&#x34;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;</a></strong><br>Q Q：  <strong>1050087164</strong><br>进行联系我，或者在下方评论区留言，欢迎大家一起交流学习。</p>
+<h2 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h2><h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><p>CSS作为描绘HTML的一种样式语言，它为HTML语言的提供不同的呈现方式；<br>正如电影剧本，通过描述一个角色的特征外貌，导演和化妆师能准确的将这形象呈现在荧幕上；<br>而CSS就是一个为HTML元素打扮的一个语言；而规范性的CSS语言能更好的将网页效果呈现出来；</p>
+<h5 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h5><p>盒子模型（BoxModel），其原理为将元素通过CSS进行包装，想想成盒子，有外层包装和内层包装，其中外层包装加内层包装决定了元素所占用位置。<br>在CSS中为了能将样式统一化处理，将相同样式的元素定义为相同的一个类。操作方法即在</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;stylename&quot;</span>&gt;</span>这是一个演示<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*样式定义*/</span></span><br><span class="line"><span class="comment">/*stylename为样式名称*/</span></span><br><span class="line"><span class="selector-class">.stylename</span>&#123;</span><br><span class="line"><span class="comment">/*其中又以冒号前为属性冒号后为属性值，数字和单位之间不能出现空格*/</span></span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100</span>rpx;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100</span>rpx;</span><br><span class="line"><span class="comment">/*padding为内边距，margin为外边距*/</span></span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">2</span>rpx;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">50</span>rpx <span class="number">0</span>rpx;</span><br><span class="line"><span class="comment">/*align为对齐的意思，其中属性分别有：center、left、right*/</span></span><br><span class="line"><span class="comment">/*align分支：text-align、align-items(此在flex容器中使用，对子项目统一对齐；)</span></span><br><span class="line"><span class="comment">  align-content(flex容器):子级元素相对容器进行对齐；*/</span></span><br><span class="line">	<span class="attribute">text-align</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="flex弹性容器"><a href="#flex弹性容器" class="headerlink" title="flex弹性容器"></a>flex弹性容器</h2><p>弹性布局（Flexbox layout）<br>主要功能是让元素能更好的适应不同设备的屏幕显示；精确管理子元素；<br>在盒子容器中，我们将样式想象成一个包装盒子，在弹性容器中，在子元素和父元素的加入之下。我们需要将一个模块的元素内部项目items进行有效的管理。<br>一个比较大的模块，在经过有效的处理可以达到清晰明了的效果。因此我们引入flex弹性容器，对子元素进行统一管理。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flexshow</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>:flex;</span><br><span class="line">	<span class="comment">/*弹性方向*/</span></span><br><span class="line">	<span class="attribute">flex-direction</span>:row;</span><br><span class="line">	<span class="comment">/*弹性包装*/</span></span><br><span class="line">	<span class="attribute">flex-wrap</span>:nowrap；</span><br><span class="line">	/*flex-flow:row nowrap;此语句相当于<span class="attribute">flex-direction</span>和<span class="attribute">flex-wrap</span>的合并语句 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码解释：<br>flex-direction：此定义了子元素在容器内部的排列方式；row行排列也就是从左到右；column为列排列，从上到下；reverse为逆向排列；<br>flex-wrap：此定义了子元素的排列情况反馈，如nowrap的情况下，元素遇到边界不会换行；wrap的情况下，弹性容器为多行状态，子项溢出会自动放置到新行；子项内部会断行；</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><h2 id="-3"><a href="#-3" class="headerlink" title=""></a></h2>
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2021/09/07/web/">web前端学习<span class="note">Older</span></a><div class="line"></div><div class="line"></div><a id="more" href="/archives">All Articles</a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      Join the discussion
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="Kirito-VR/beandar-issue" issue-term="pathname" theme="github-light" input-position="bottom" comment-order="desc" keep-theme="true" loading="false" branch="main"></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/">分类</a><a href="/">标签</a><a href="/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/">开源库</a><a href="/">实用脚本</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/">友链</a><a href="/">留言板</a><a href="/">Spotify</a><a href="/">Unsplash</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/Kirito-VR">GitHub</a></div></div><div class="text"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</p>
+<p>This site was deployed by <a href="http://example.com/">@John Doe</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.2" title="v1.4.2">Stellar</a>. You can find the source code in <a target="_blank" rel="noopener" href="https://github.com/Kirito-VR">GitHub</a>.</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.2';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper/swiper-bundle.min.css","js":"https://unpkg.com/swiper/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
