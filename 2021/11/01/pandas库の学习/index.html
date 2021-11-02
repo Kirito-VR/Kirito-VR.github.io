@@ -4,7 +4,7 @@
 <head>
   <meta name="generator" content="Hexo 5.4.0">
   <meta charset="utf-8">
-  <meta name="robots" content="noindex,follow">
+  
 
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
@@ -17,14 +17,18 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>Archives - CQmax-chen的个人博客</title>
+  <title>CQmax-chen的个人博客</title>
 
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Archives">
-<meta property="og:url" content="http://example.com/archives/2021/09/index.html">
+    <meta name="description" content="pandas库の学习（2021&#x2F;11&#x2F;1 晚） 一、pandas简要介绍 pandas的库文件依赖：pandas是基于numpy的一种工具； pandas的处理对象：类似SQL对”.csv、.tsv、.xlsx”等表格数据进行处理分析 pandas的数据结构：主要分为两种： Series:一维数组的对象；主要用于索引； DataFrame:二维数据结构，即一张表格，其中每列数据类型(例如:int6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CQmax-chen的个人博客">
+<meta property="og:url" content="http://example.com/2021/11/01/pandas%E5%BA%93%E3%81%AE%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="CQmax-chen的个人博客">
+<meta property="og:description" content="pandas库の学习（2021&#x2F;11&#x2F;1 晚） 一、pandas简要介绍 pandas的库文件依赖：pandas是基于numpy的一种工具； pandas的处理对象：类似SQL对”.csv、.tsv、.xlsx”等表格数据进行处理分析 pandas的数据结构：主要分为两种： Series:一维数组的对象；主要用于索引； DataFrame:二维数据结构，即一张表格，其中每列数据类型(例如:int6">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-01T14:17:09.829Z">
+<meta property="article:modified_time" content="2021-11-02T11:29:01.125Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -49,7 +53,7 @@
 
 
   <div class='l_body' id='start'>
-    <aside class='l_left' layout=''>
+    <aside class='l_left' layout='post'>
     
 
 
@@ -58,256 +62,106 @@
 <div class="logo-wrap"><a class="title" href="/"><div class="main">CQmax-chen的个人博客</div></a></div>
 <nav class="menu dis-select"></nav></header>
 
-<div class="widgets"><div class='widget-wrap' id='markdown'>
-  <div class='widget-header cap dis-select'>
-    <span class='name'>CQmax个人博客</span>
-  </div>
-  <div class='widget-body fs14'>
-    
-      <p>Kirito-VR</p>
+<div class="widgets">
 
-    
-      <br>
-    
-      <p>QQ</p>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81pandas%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-text">一、pandas简要介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81pandas%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">二、pandas的使用</span></a></li></ol></div></div></div>
 
-    
-      <p>1050087164</p>
 
-    
-      <br>
-    
-  </div>
-</div>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" title="GitHub" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/08a41b181ce68.svg"/></a><a class="social" title="Music" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/cf1ae151f9e83.svg"/></a><a class="social" title="Comments" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/942ebbf1a4b91.svg"/></a></div></footer>
 
     </aside>
-    <div class='l_main list'>
+    <div class='l_main'>
       
-  
-
-<header class="header mobile-only">
-
-<div class="logo-wrap"><a class="title" href="/"><div class="main">CQmax-chen的个人博客</div></a></div>
-</header>
-
-
 
       
 
-  
-  <div class='nav-wrap'>
-  <nav class='sub post cap'>
-    
-      <a href='/'>Recent</a>
-    
-    
-      
-        <a href='/categories'>Categories</a>
-      
-    
-    
-      
-        <a href='/tags'>Tags</a>
-      
-    
-    
-      
-        <a class='active' href='/archives'>Archives</a>
-      
-    
-  </nav>
-</div>
 
-  <div class='post-list'>
-  	
-  	
-  		
-  		
-  			
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  	
-  		<article class='post-card' id='archive'>
-  			<div class='archive-year h4'>2021</div>
-  			
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				<div>
-            <a class='post fs14' href="/2021/11/01/pandas%E5%BA%93%E3%81%AE%E5%AD%A6%E4%B9%A0/">
-    					<time>11-01</time>
-    					<span>
-                
-      						2021-11-01
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/10/24/bbs_class1/">
-    					<time>10-24</time>
-    					<span>
-                
-      						2021-10-24
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/10/22/datasharecontest/">
-    					<time>10-22</time>
-    					<span>
-                
-      						数据开放大赛初赛总结
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/10/08/machinestudy/">
-    					<time>10-08</time>
-    					<span>
-                
-      						机器学习（一）
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/09/28/web2/">
-    					<time>09-28</time>
-    					<span>
-                
-      						web前端学习（二）
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/09/07/web/">
-    					<time>09-07</time>
-    					<span>
-                
-      						web前端学习
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/08/26/%E6%95%B0%E6%A8%A1%E8%AE%AD%E7%BB%831/">
-    					<time>08-26</time>
-    					<span>
-                
-      						分析
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/08/23/selnium1/">
-    					<time>08-23</time>
-    					<span>
-                
-      						自动化测试学习(一)
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/08/22/ubuntu/">
-    					<time>08-22</time>
-    					<span>
-                
-      						2021-08-22
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/08/21/test-for-blog/">
-    					<time>08-21</time>
-    					<span>
-                
-      						test for blog
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/08/21/hello-world/">
-    					<time>08-21</time>
-    					<span>
-                
-      						Hello World
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  		</article>
-  	
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2021-11-01T14:17:09.829Z">2021-11-01</time></div></div>
+
+<article class='content md post'>
+
+<h1 id="pandas库の学习"><a href="#pandas库の学习" class="headerlink" title="pandas库の学习"></a>pandas库の学习</h1><p>（2021/11/1 晚）</p>
+<h2 id="一、pandas简要介绍"><a href="#一、pandas简要介绍" class="headerlink" title="一、pandas简要介绍"></a>一、pandas简要介绍</h2><ol>
+<li>pandas的库文件依赖：pandas是基于numpy的一种工具；</li>
+<li>pandas的处理对象：类似SQL对”.csv、.tsv、.xlsx”等表格数据进行处理分析</li>
+<li>pandas的数据结构：主要分为两种：<ul>
+<li>Series:一维数组的对象；主要用于索引；</li>
+<li>DataFrame:二维数据结构，即一张表格，其中每列数据类型(例如:int64\char\float.etc)相同。可看成Series构成的字典。</li>
+</ul>
+</li>
+</ol>
+<h2 id="二、pandas的使用"><a href="#二、pandas的使用" class="headerlink" title="二、pandas的使用"></a>二、pandas的使用</h2><ol>
+<li>pandas库的导入：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>读取文件：其中读取文件的函数文档：<a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">pandas.read_csv()函数文档 (pydata.org)</a></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(path) <span class="comment">#csv文件的读取</span></span><br><span class="line">df = pd.read_excel(path) <span class="comment">#读取xlsx文件</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>显示表格信息：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df.head() <span class="comment">#显示表头信息</span></span><br><span class="line">df.shape  <span class="comment">#显示表格大小列数(columns)行数(loc)</span></span><br><span class="line">df.columns<span class="comment">#显示列名</span></span><br><span class="line">df.info() <span class="comment">#显示各列的信息，包括列的值类型，列元组个数以及空值个数；</span></span><br><span class="line">df.describe() <span class="comment">#显示数值的基本统计学特征，如均值、标准差、范围、四分数等；</span></span><br><span class="line"><span class="comment">#对于describe()函数还有加以参数输出，如通过include参数进行约束输出；</span></span><br><span class="line">df.describe(include=[<span class="string">&#x27;object&#x27;</span>,<span class="string">&#x27;bool&#x27;</span>]<span class="comment">#其中‘object’和‘bool’都代表了类型</span></span><br><span class="line">df[<span class="string">&#x27;Churn&#x27;</span>].value_counts(normalize = <span class="literal">False</span>) <span class="comment">#统计该列中类型为object和bool分布；参数normalize表示归一化，如果为True则输出分布比例；</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>pandas.DataFrame.describe(percentiles=None**,** include=None,exclude=None, <em>datetime_is_numeric=False</em>)函数解析：[df.describe()](<a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html">pandas.DataFrame.describe — pandas 1.3.4 documentation (pydata.org)</a>)</p>
+<ul>
+<li><p>percentiles :<strong>具体用处还待考究；</strong></p>
+</li>
+<li><p>include：input a white list (白名单) like [‘int64’,’float’];指定类型值的列输出；默认值为all;</p>
+</li>
+<li><p>exclude：input a black list (黑名单) like [‘object’,’bool’];除去列表类型值输出；</p>
+</li>
+<li><p>datetime_is_numeric : 由于时间为数值可能会影响该列的统计数据；此处参数为布尔值；是否将时间转换为数值处理；</p>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>数据操作</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;Churn&#x27;</span>] = df[<span class="string">&#x27;Churn&#x27;</span>].astype(<span class="string">&#x27;int64&#x27;</span>) <span class="comment">#将行类型值转换</span></span><br><span class="line"><span class="comment">#排序</span></span><br><span class="line">df.sort_values(by=<span class="string">&#x27;Total day charge&#x27;</span>,ascending=<span class="literal">False</span>)</span><br><span class="line"><span class="comment">#其中的排序by可以传入字符串列表，进行多列排序如by = [&#x27;Churn&#x27;,&#x27;Total day charge&#x27;],相应的后面参数也需要传入对应值列表；ascending = [True,False];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#数据索引和获取数据</span></span><br><span class="line"><span class="comment">#DateFrame[&#x27;Name&#x27;]可获得一个单独的列</span></span><br><span class="line">df[<span class="string">&#x27;Churn&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>pandas.DataFrame.sort_values(by,axis=0,ascending=True,inplace=False,kind=’quicksort’)<ul>
+<li>by:str or list of str–所需排序的列，使用字符串作为参数输入；</li>
+<li>axis:轴线，0 or ‘index’, 1 or ‘columns’;默认为0</li>
+<li>ascending: 升序，默认为true；</li>
+<li>inplace : bool,default False;此参数用于选择修改数据是否在原数据上更改，如果为True，则在原始数据上做排序，反之，需要定义新变量获取所排序后的数据作为新数据；</li>
+<li>kind：排序类型；有‘quicksort’、‘mergesort’、‘stable’</li>
+</ul>
+</li>
+<li></li>
+</ul>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2021/10/24/bbs_class1/">undefined<span class="note">Older</span></a><div class="line"></div><div class="line"></div><a id="more" href="/archives">All Articles</a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      Join the discussion
+    </div>
+    <div class='cmt-body valine'>
+      
+
+<div id="valine_container" class="valine_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </div>
   </div>
+
 
 
       
