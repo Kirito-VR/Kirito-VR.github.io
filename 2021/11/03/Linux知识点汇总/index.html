@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>Linux知识点汇总 - CQmax-chen的个人博客</title>
+
+  
+    <meta name="description" content="Linux系统知识一、文件系统和文件 创建Linux分区不可少的分区为 SWAP和boot分区  SWAP：交换分区，属于磁盘分区，在系统中，物理内存快使用完时操作系统会使用交换分区，将最近未使用的内存页面保存到交换分区，从而为需要内存的程序腾出空间，在swap中的内存页面被访问时，系统会重新加载入物理内存中去运行； boot：根分区，包含了操作系统的内核和在启动系统过程中所要用到的文件，此分区必">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux知识点汇总">
+<meta property="og:url" content="http://example.com/2021/11/03/Linux%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="CQmax-chen的个人博客">
+<meta property="og:description" content="Linux系统知识一、文件系统和文件 创建Linux分区不可少的分区为 SWAP和boot分区  SWAP：交换分区，属于磁盘分区，在系统中，物理内存快使用完时操作系统会使用交换分区，将最近未使用的内存页面保存到交换分区，从而为需要内存的程序腾出空间，在swap中的内存页面被访问时，系统会重新加载入物理内存中去运行； boot：根分区，包含了操作系统的内核和在启动系统过程中所要用到的文件，此分区必">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-03T14:28:36.368Z">
+<meta property="article:modified_time" content="2021-11-05T14:48:49.154Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Shell,Linux,Ubuntu使用">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">CQmax-chen的个人博客</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%92%8C%E6%96%87%E4%BB%B6"><span class="toc-text">一、文件系统和文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Linux%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%A8%8B%E5%BA%8F"><span class="toc-text">二、Linux的系统和程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81vi%E3%80%81vim%E4%BB%A5%E5%8F%8Agedit"><span class="toc-text">三、vi、vim以及gedit</span></a></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" title="GitHub" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/08a41b181ce68.svg"/></a><a class="social" title="Music" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/cf1ae151f9e83.svg"/></a><a class="social" title="Comments" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/942ebbf1a4b91.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/typroa-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-2021-11-3/">/typroa/学习日记/2021-11-3</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2021-11-03T14:28:36.368Z">2021-11-03</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>Linux知识点汇总</span></h1>
+<h1 id="Linux系统知识"><a href="#Linux系统知识" class="headerlink" title="Linux系统知识"></a>Linux系统知识</h1><h2 id="一、文件系统和文件"><a href="#一、文件系统和文件" class="headerlink" title="一、文件系统和文件"></a>一、文件系统和文件</h2><ol>
+<li><p>创建Linux分区不可少的分区为 SWAP和boot分区</p>
+<ul>
+<li><strong>SWAP</strong>：交换分区，属于磁盘分区，在系统中，物理内存快使用完时操作系统会使用交换分区，将最近未使用的内存页面保存到交换分区，从而为需要内存的程序腾出空间，在swap中的内存页面被访问时，系统会重新加载入物理内存中去运行；</li>
+<li><strong>boot</strong>：根分区，包含了操作系统的内核和在启动系统过程中所要用到的文件，此分区必须要建立；</li>
+<li>usr：Linux存放软件的地方，应当将最大的空间分给它；</li>
+<li>home:用户的home目录所在地，这个分区的大小取决于有多少用户，如果是多用户共同使用同一台电脑，这个分区是完全有必要的，况且根用户也可以很好的控制普通用户使用计算机，如对用户或者用户组实行硬盘限量使用，限制普通用户访问那些文件等。</li>
+</ul>
+</li>
+<li><p>Linux中设备以文件形式存在/dev目录下；</p>
+</li>
+<li><p>Linux内核引导时，从文件/etc/fstab 中读取要加载的文件系统；</p>
+<ul>
+<li>fstab文件是安装Linux系统是写入的磁盘文件挂载信息，开机启动时需要将此文件中的挂载信息读取，并重新挂载文件系统；</li>
+</ul>
+</li>
+<li><p>Linux文件系统每个文件用i节点来标识；</p>
+<ul>
+<li>i节点相当于一个指针表，文件名和文件数据是分开储存的，i节点存储文件名及相对应的文件数据的地址；</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/feiyinzilgd/article/details/5609157">Linux中的i节点表</a></li>
+</ul>
+</li>
+<li><p>全部磁盘块由四个部分，分别为：引导块、专用块、i节点表块和数据存储块；</p>
+<ul>
+<li>文件系统将磁盘空间划分为 每1024个字节一组，称为块。编号从0到整个磁盘的最大块数；</li>
+<li>块0为引导块，文件系统不用该块；</li>
+<li>块1成为专用块，包含许多信息，其中有磁盘大小和全部块的其他两部分的大小。</li>
+<li>块2开始是i节点表，表的块数是可变的。</li>
+</ul>
+</li>
+<li><p>超级块包含了 i节点表 和 空闲块表等重要的文件系统信息</p>
+</li>
+<li><p>文件权限：rwx为权限，三组，分别对应用户(U)、同组用户(G)、其他用户(O)</p>
+<ul>
+<li>普通文件：- rw- rw- r– </li>
+<li>目录文件(开头为d)：d rwx rwx r-x</li>
+<li>权限更改：chmod 664 CAT1 为用户授权：(U)6：110；(G)6：110;(O)4:  100;</li>
+<li><a target="_blank" rel="noopener" href="https://www.linuxprobe.com/linux-file-permession.html">Linux文件权限管理方法</a></li>
+</ul>
+</li>
+<li><p>/etc存放配置文件：Usually contain the configuration files for all the programs that run on your Linux/Unix system.</p>
+<ul>
+<li>网络配置文件</li>
+<li>启动或改变运行级时运行的scripts的目录</li>
+<li>/etc/passwd：存放用户数据库，密码口令和用户信息</li>
+<li>….</li>
+</ul>
+</li>
+<li><p>硬链接和字符链接(软连接)：</p>
+<ul>
+<li><p>硬链接，可以认为是一个指向文件索引点的指针；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost link]# touch SingleFile                ;新建一个空文件</span><br><span class="line">[root@localhost link]# ls -l</span><br><span class="line">total 0</span><br><span class="line">-rw-r--r-- 1 root root 0 Mar 30 17:48 SingleFile       ;空文件的链接数为1</span><br><span class="line">[root@localhost link]# ln SingleFile HardLinkFile</span><br><span class="line">[root@localhost link]# ls -l</span><br><span class="line">total 0</span><br><span class="line">-rw-r--r-- 2 root root 0 Mar 30 17:48 HardLinkFile     ;新文件的链接数为2</span><br><span class="line">-rw-r--r-- 2 root root 0 Mar 30 17:48 SingleFile       ;旧文件的链接数为2</span><br><span class="line">[root@localhost link]# echo &quot;Hello&quot; &gt; SingleFile         ;向旧文件中写入6个Bytes的字符串</span><br><span class="line">[root@localhost link]# ls -l</span><br><span class="line">total 8</span><br><span class="line">-rw-r--r-- 2 root root 6 Mar 30 17:49 HardLinkFile     ;新文件的大小变为6个Bytes</span><br><span class="line">-rw-r--r-- 2 root root 6 Mar 30 17:49 SingleFile       ;旧文件的大小变为6个Bytes</span><br></pre></td></tr></table></figure></li>
+<li><p>字符链接， 包含对另一个文件/目录 以绝对/相对 路径形式的引用，相当于快捷方式，其没有任何文件系统的限制。可跨越机器和网络；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符链接命令：ln -s SingleFile SoftLinkFile</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/LubinLew/p/LinuxFileLink.html">硬链接和字符链接</a></p>
+</li>
+</ul>
+</li>
+<li><p>文件备份：tar备份</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf etcbak.tar /etc</span><br><span class="line"><span class="meta">#</span><span class="bash">将etc目录下的文件备份；</span></span><br><span class="line">gzip etcbak.tar</span><br><span class="line"><span class="meta">#</span><span class="bash">生成压缩文件</span></span><br><span class="line">tar -zvcf etcbak.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash">加压缩和解备份</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="二、Linux的系统和程序"><a href="#二、Linux的系统和程序" class="headerlink" title="二、Linux的系统和程序"></a>二、Linux的系统和程序</h2><ol>
+<li><p>linux内核分为：进程管理系统、内存管理系统、I/O管理系统和文件管理系统等四个子系统</p>
+<ul>
+<li>进程管理系统</li>
+<li>内存管理系统</li>
+<li>I/O管理系统</li>
+<li>文件管理系统</li>
+</ul>
+</li>
+<li><p>内核配置是系统管理员在改变系统配置  <strong>硬件</strong> 是要进行的重要操作；</p>
+</li>
+<li><p>删除本系统用不上的<strong>设备驱动系统</strong>时必须编译内核，当内核不支持系统上的<strong>设备驱动程序</strong>时，必须对内核<strong>升级</strong>。</p>
+</li>
+<li><p>shell程序：shell作为linux下的脚本程序，常见的shell有sh、bash、csh、tcsh、ash等,sh的全程时Bourne shell；大部分系统都配备有sh，故此处只说sh。</p>
+<ul>
+<li><p>sh test.sh，编译并运行sh脚本文件</p>
+</li>
+<li><p>脚本文件格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">echo &quot;Hello World!&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>主要语法我决定另开一个文章进行讲解</p>
+</li>
+</ul>
+</li>
+<li><p>网络：</p>
+<ul>
+<li>网络管理的重要任务是：控制 和 监控。</li>
+<li>静态路由设定后，若网络拓扑结构发生变化，需由<strong>系统管理员</strong>修改路由的设置。</li>
+<li>DHCP协议可以实现动态IP地址分配；</li>
+<li>网络管理通常由<strong>监测</strong>、<strong>传输</strong>和<strong>管理</strong>三部分组成</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、vi、vim以及gedit"><a href="#三、vi、vim以及gedit" class="headerlink" title="三、vi、vim以及gedit"></a>三、vi、vim以及gedit</h2><ol>
+<li><p>vi和vim的进入以及操作：</p>
+<ul>
+<li><p>进入vi/vim命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$vim test.txt      #当文件夹中没有该文件则创建该文件并进入命令行模式</span><br><span class="line">$vi test.txt</span><br></pre></td></tr></table></figure></li>
+<li><p>vi/vim的三种模式：</p>
+<ul>
+<li>命令行模式：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">进入命令行模式:</span><br><span class="line">插入模式中使用&#x27;ESC&#x27;进行回退至命令行模式</span><br><span class="line">末行模式中删除末行命令会自动切换会命令行模式</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>插入模式：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">进入：在命令行模式中通过‘i’/&#x27;a&#x27;进入插入模式</span><br><span class="line">退出：在插入模式中通过&#x27;esc&#x27;退出插入模式</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>末行模式：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在命令行模式下通过&#x27;:&#x27;进入末行模式</span><br></pre></td></tr></table></figure></li>
+<li><p>末行模式的几种指令：</p>
+<ul>
+<li>q:quit 退出</li>
+<li>w:保存</li>
+<li>!:强制操作</li>
+<li>wq:保存并退出</li>
+<li>q!:强制退出</li>
+<li>wq!:强制保存并退出</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2021/11/01/pandas%E5%BA%93%E3%81%AE%E5%AD%A6%E4%B9%A0/">pandas库の学习<span class="note">Older</span></a><div class="line"></div><div class="line"></div><a id="more" href="/archives">All Articles</a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      Join the discussion
+    </div>
+    <div class='cmt-body valine'>
+      
+
+<div id="valine_container" class="valine_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/">分类</a><a href="/">标签</a><a href="/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/">开源库</a><a href="/">实用脚本</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/">友链</a><a href="/">留言板</a><a href="/">Spotify</a><a href="/">Unsplash</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/Kirito-VR">GitHub</a></div></div><div class="text"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</p>
+<p>This site was deployed by <a href="http://example.com/">@John Doe</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.2" title="v1.4.2">Stellar</a>. You can find the source code in <a target="_blank" rel="noopener" href="https://github.com/Kirito-VR">GitHub</a>.</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.2';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper/swiper-bundle.min.css","js":"https://unpkg.com/swiper/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function getEmojiMaps() {
+    function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+    }
+    var emojiMaps = {};
+    for (var i = 1; i <= 54; i++) {
+      emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+    }
+    for (var i = 1; i <= 101; i++) {
+      emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+    }
+    for (var i = 1; i <= 116; i++) {
+      emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+    }
+    for (var i = 1; i <= 125; i++) {
+      emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+    }
+    for (var i = 1; i <= 4; i++) {
+      emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+    }
+    return emojiMaps;
+  }
+  function load_comment(){
+    if(!document.getElementById("valine_container"))return;
+    stellar.loadScript('https://cdn.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/js/Valine.min.js', {defer:true}).then(function () {
+      const el = document.getElementById("valine_container");
+      var path = el.getAttribute('comment_id');
+      const placeholder = "";
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+      var valine = new Valine();
+      valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/js/Valine.min.js","appId":"yRi7gt9H8s1Htup1TcS4b4lg-gzGzoHsz","appKey":"512frESF4VUrcrVurxRNyVHs","placeholder":null,"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false,"tagMeta":["博主","小伙伴","访客"],"metaPlaceholder":{"nick":"1050087164","mail":"1050087164@qq.com","link":"https://github.com/Kirito-VR"},"master":["6783037F2DF30EAB99F9FC256157D875"],"friends":["6783037F2DF30EAB99F9FC256157D875"]}, {
+        el: '#valine_container',
+        path: path,
+        placeholder: placeholder,
+        emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+        emojiMaps: getEmojiMaps(),
+      }));
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
