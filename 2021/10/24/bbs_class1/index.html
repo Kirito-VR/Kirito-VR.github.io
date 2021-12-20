@@ -28,7 +28,7 @@
 <meta property="og:description" content="欢迎来到我的博客 我是CQmax您可以通过邮箱： 1050087164@qq.comQ Q：  1050087164进行联系我，或者在下方评论区留言，欢迎大家一起交流学习。 欢迎大家指出问题 欢迎大家讨论问题 欢迎大家解决问题 BlueClass学习—day n 不用IDE的开发方式：（配置好java环境） 记事本(Editplus：可以让关键字高亮)编写 命令行编译：javac + 绝对路径&#x2F;文">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-24T06:39:21.882Z">
-<meta property="article:modified_time" content="2021-11-24T14:28:28.067Z">
+<meta property="article:modified_time" content="2021-12-15T13:31:02.144Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="java,web,jvm">
 <meta name="twitter:card" content="summary">
@@ -65,7 +65,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">一、环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Java%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0"><span class="toc-text">二、Java案例学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81CLASSPATH%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">三、CLASSPATH的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E5%86%99%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="toc-text">四、程序的编写与调试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B%E7%BB%8F%E9%AA%8C%EF%BC%9A"><span class="toc-text">过程经验：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81string"><span class="toc-text">五、string</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="toc-text">六、类和对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E5%A4%9A%E6%80%81"><span class="toc-text">七、抽象类和多态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%8E%A5%E5%8F%A3"><span class="toc-text">八、接口</span></a></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">一、环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Java%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0"><span class="toc-text">二、Java案例学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81CLASSPATH%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">三、CLASSPATH的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E5%86%99%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="toc-text">四、程序的编写与调试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B%E7%BB%8F%E9%AA%8C%EF%BC%9A"><span class="toc-text">过程经验：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81string"><span class="toc-text">五、string</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="toc-text">六、类和对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E5%A4%9A%E6%80%81"><span class="toc-text">七、抽象类和多态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%8E%A5%E5%8F%A3"><span class="toc-text">八、接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JAD%E5%AF%B9%E7%A8%8B%E5%BA%8F%E8%BF%9B%E8%A1%8C%E5%8F%8D%E7%BC%96%E8%AF%91%EF%BC%9B"><span class="toc-text">JAD对程序进行反编译；</span></a></li></ol></div></div></div>
 
 
 </div>
@@ -208,11 +208,22 @@
 </li>
 </ol>
 <ul>
-<li>charArt:类似数组索引</li>
-<li>contains:包含’子集’</li>
-<li>endsWith:  </li>
-<li>indexOf:</li>
-<li>valueOf:将数值转为字符串，int、float、long</li>
+<li><p>charArt:类似数组索引</p>
+</li>
+<li><p>contains:包含’子集’</p>
+</li>
+<li><p>endsWith:  返回布尔值，判定字符串是否以字串结尾</p>
+<blockquote>
+<p>String.endsWith(“.png”);// 判断字符串是否以“.png”结尾；</p>
+</blockquote>
+</li>
+<li><p>indexOf: 返回数值，寻找字符在字符串中第一次出现的位置；</p>
+<blockquote>
+<p>System.out.print(Str.indexOf(‘x’));//返回字符串中x出现的索引值；</p>
+</blockquote>
+</li>
+<li><p>valueOf:将数值转为字符串，int、float、long</p>
+</li>
 </ul>
 <ol>
 <li><p>日期类</p>
@@ -234,13 +245,28 @@
 </ul>
 </li>
 </ul>
+<ol>
+<li><p>字符串常量池：</p>
+<blockquote>
+<p>String s = “ab”+”cd”;// 在编译器中已经确定好s的具体值，并且创建了三个字符串对象“abcd”，“ab”，“cd”，存储至字符串常量池；</p>
+<p>String s1 = “abcd”; // 使用此种方法的构建的字符串；会预先在字符串常量池种寻找相同的字符串</p>
+</blockquote>
+<ul>
+<li><p>StringBuffer与String的区别；</p>
+</li>
+<li><p>StringBuffer （synchronized）同StringBuilder 区别；</p>
+<p>synchronized:同步；</p>
+</li>
+</ul>
+</li>
+</ol>
 <h2 id="六、类和对象"><a href="#六、类和对象" class="headerlink" title="六、类和对象"></a>六、类和对象</h2><ol>
 <li><p>类所包含的成分：</p>
 <ul>
 <li>属性’变量’:属性有可分有，静态变量’static’，</li>
 <li>给属性赋值：<ul>
 <li>对象.属性 = 值：直接赋值（属性不能私有）</li>
-<li>通过setter自定义函数赋值；</li>
+<li>通过setget()自定义函数赋值；</li>
 <li>通过构造函数赋值；</li>
 </ul>
 </li>
@@ -287,22 +313,106 @@
 </li>
 </ol>
 <ol>
-<li>static</li>
-<li>this</li>
-<li>super</li>
-<li>重写</li>
-<li>重载</li>
-<li>包</li>
-<li>修饰符</li>
-<li>内存结构</li>
+<li><p>static</p>
+<ul>
+<li><p>静态；类对象都固有的属性，如某学校的学生只有一个校址</p>
+</li>
+<li><p>可以修饰变量、修饰方法；</p>
+</li>
+<li><p>修饰代码块：只会执行一次；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String address=<span class="string">&quot;桂林电子科技大学&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span>&#123;<span class="comment">//修饰代码块，程序只会执行一次；</span></span><br><span class="line">        方法<span class="number">1</span>;</span><br><span class="line">        function2;</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;<span class="comment">//实例块；每次创建对象都会调用一次；运作在对象变量构造之前；</span></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>this</p>
+<ul>
+<li><p>区分成员变量和局部变量</p>
+</li>
+<li><p>调用本类的构造函数</p>
+</li>
+<li><p>作为参数传递</p>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>作为返回值返回</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String stuNo;</span><br><span class="line">    <span class="keyword">private</span> String stuName;</span><br><span class="line">    <span class="keyword">char</span> stuSex;</span><br><span class="line">    <span class="keyword">int</span> stuAge;</span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(<span class="string">&quot;0000&quot;</span>);<span class="comment">//此处调用的this，即1.调用构造函数；并进行匹配相同的参数的构造函数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String sNO)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.stuNo = sNO;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//构造函数不能有返回值;</span></span><br><span class="line">    Student(String sNo,String sName,<span class="keyword">char</span> sSex,<span class="keyword">int</span> sAge)&#123;</span><br><span class="line">        <span class="keyword">this</span>.stuNo = sNo;  <span class="comment">//区分成员变量和局部变量</span></span><br><span class="line">        <span class="keyword">this</span>.stuName = sName;</span><br><span class="line">        <span class="keyword">this</span>.stuSex = sSex;</span><br><span class="line">        <span class="keyword">this</span>.stuAge = sAge;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Student <span class="title">getStu</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>; <span class="comment">//this指针返回自身；</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getSno</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.stuNo;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li><p>super</p>
+<ul>
+<li>调用父类的函数\构造方法</li>
+<li>重写父类变量；</li>
+<li>在super调用父类构造函数中，前面不能有代码执行；</li>
+<li>因为继承如果子类从父类继承属性，则必须先有父类对象，所以在构造子类前，代码会先执行父类的构造函数,并且是默认的执行的。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">    <span class="comment">//父类的构造方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String password)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">	privatr String password;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getPassword</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(password);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="title">extend</span> <span class="title">User</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(Password)</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(Password);<span class="comment">//通过super调用父类的构造方法</span></span><br><span class="line">    &#125;   </span><br><span class="line">        </span><br><span class="line">    <span class="keyword">private</span> String stuName;</span><br><span class="line">	privatr String major;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">getPassword</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="keyword">super</span>.password);<span class="comment">//调用父类的变量</span></span><br><span class="line">        <span class="keyword">super</span>.getPassword();<span class="comment">//调用父类函数，与子类函数重写区分开；</span></span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Text</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String agrs[])</span></span>&#123;</span><br><span class="line">        Student stu = <span class="keyword">new</span> Student();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>重写：作用在子类</p>
+<ul>
+<li>对父类的方法函数进行重定义；</li>
+<li>条件：父类存在此方法，子类继承此方法、子类声明并重定义此方法；</li>
+<li>重写目的：由于父类的方法并不满足所需功能，因此需要对此方法进行重写改编至满足需求；子类对象存在此方法的重写定义，就不会再调用父类的方法；</li>
+</ul>
+<blockquote>
+<p>“==”与equals的区别：</p>
+<p>“==”作用在基本类型（其中不包括String），比较的是数值，作用在其他类型比较的是地址；</p>
+<p>“equals” 原本是在Object类中同“==”，而在String类内将其由父类Object(所有子类的默认父类)中继承下来的equals函数进行了重写；增加了其的用法；</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">equals</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>重载：作用在同一个类内</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> Sno;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;输出&quot;</span>+a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(String a)</span></span>&#123;</span><br><span class="line">        System.out.println(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>包</p>
+<ul>
+<li><p>文件夹</p>
+<p>让项目结构更加清晰</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.edu.guet.util;</span><br><span class="line"><span class="comment">//cn.edu.guet.util:此为包的路径</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MD5</span></span>&#123;</span><br><span class="line">    psvm()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>修饰符</p>
+</li>
+<li><p>递归：不确定循环次数</p>
+<ul>
+<li><p>示例：递归显示目录下的文件</p>
+</li>
+<li><blockquote>
+<p>[File的API文档]: <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/?xd_co_f=47c934d9-e663-4eba-819c-b726fc2d0847">https://docs.oracle.com/javase/8/docs/api/?xd_co_f=47c934d9-e663-4eba-819c-b726fc2d0847</a>    “File的API文档“”</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*; <span class="comment">// 需要用到io流的文件类File</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DiGui</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">		showFile(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//在下方的函数需要使用static设置为静态才可以调用</span></span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showFile</span><span class="params">(String PATH)</span></span>&#123;</span><br><span class="line">		File Files = <span class="keyword">new</span> File(PATH);</span><br><span class="line">		File Fileshow[] = Files.listFiles();<span class="comment">// listFile();返回文件列表；</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;Fileshow.length;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(Fileshow[i].isDirectory())<span class="comment">// isDirectory();返回布尔值，判断是否为文件夹；</span></span><br><span class="line">				showFile(Fileshow[i].getAbsolutePath()); <span class="comment">// 获得文件的绝对路径；</span></span><br><span class="line">			System.out.println(Fileshow[i].getName()); <span class="comment">// 获得文件的文件名，包括扩展名；</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>内存结构</p>
+<ul>
+<li>创建对象：类名 对象名 = new 构造方法();//从堆顶向下存储；</li>
+<li>调用函数方法、创建变量；//从栈底向上堆放存储； </li>
+</ul>
+</li>
 </ol>
 <h2 id="七、抽象类和多态"><a href="#七、抽象类和多态" class="headerlink" title="七、抽象类和多态"></a>七、抽象类和多态</h2><ol>
 <li>多态的运用：向上转型：将来需求发生变化，可让我们尽可能少的修改原来的代码，甚至不修改；</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        <span class="comment">//普通新建变量</span></span><br><span class="line">        Cat red = <span class="keyword">new</span> Cat();</span><br><span class="line">        Dog black = <span class="keyword">new</span> Dog();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//多态向上转型新建变量</span></span><br><span class="line">        Animals dog = <span class="keyword">new</span> Dog();</span><br><span class="line">        Animals cat = <span class="keyword">new</span> Cat();</span><br><span class="line">        <span class="comment">//因为我们具体的猫狗是继承的动物，故猫狗也是动物类；动物是大类，猫狗是子类；</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//当我们进行多态运行时变量尽量使用不代表任何具体对象的名称</span></span><br><span class="line">        Animals animals = <span class="keyword">new</span> Dog();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//所以如果我们代码需要改动，则只需改动上方变量赋值函数</span></span><br><span class="line">        animals.shot();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animals</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">shot</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animals</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shot</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;喵喵...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animals</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shot</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;汪汪...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animals</span></span>&#123;<span class="comment">//继承</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shot</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;喵喵...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animals</span></span>&#123;<span class="comment">//继承</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shot</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;汪汪...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol>
 <li>可变长参数</li>
 </ol>
@@ -335,12 +445,14 @@
 </ul>
 </li>
 <li><p>抽象类和接口的区别</p>
+<p>接口是用来被实现的；</p>
+<p>抽象类是用来被继承的；所体现的是（is a …）一种类别；</p>
 <ol>
 <li><p>语法层面：</p>
 <ul>
 <li><p>``` java<br>//抽象类<br>abstract class 类名{</p>
 <p>}</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">* ``` java</span><br><span class="line">  //接口</span><br><span class="line">  interface 接口名&#123;</span><br><span class="line">      //接口内不能实质化函数，接口可以被类多继承</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">* ``` java</span><br><span class="line">  //接口</span><br><span class="line">  interface 接口名&#123;</span><br><span class="line">      //接口内不能实质化函数，接口可以被类多继承</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -368,7 +480,7 @@
 </ol>
 </li>
 </ul>
-
+<h2 id="JAD对程序进行反编译；"><a href="#JAD对程序进行反编译；" class="headerlink" title="JAD对程序进行反编译；"></a>JAD对程序进行反编译；</h2>
 
 <div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section></div>

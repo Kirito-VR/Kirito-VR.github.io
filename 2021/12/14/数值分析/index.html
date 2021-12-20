@@ -20,11 +20,15 @@
   <title>CQmax-chen的个人博客</title>
 
   
-    <meta property="og:type" content="website">
+    <meta name="description" content="数值分析3.迭代矩阵  求解方程组Ax&#x3D;b&#x3D;&gt; \begin{cases} 8x_1-3x_2+2x_3&#x3D;20\\ 4x_1+11x_2-x_3&#x3D;33\\ 6x_1+3x_2+12x_3&#x3D;36 \end{cases} \\有 A&#x3D;\begin{bmatrix} 8 &amp; -3 &amp; 2\\ 4 &amp; 11 &amp; -1\\ 6 &amp; 3 &amp; 12 \end{bmatrix} ,x&#x3D;\begin{bmatrix">
+<meta property="og:type" content="article">
 <meta property="og:title" content="CQmax-chen的个人博客">
-<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:url" content="http://example.com/2021/12/14/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="CQmax-chen的个人博客">
+<meta property="og:description" content="数值分析3.迭代矩阵  求解方程组Ax&#x3D;b&#x3D;&gt; \begin{cases} 8x_1-3x_2+2x_3&#x3D;20\\ 4x_1+11x_2-x_3&#x3D;33\\ 6x_1+3x_2+12x_3&#x3D;36 \end{cases} \\有 A&#x3D;\begin{bmatrix} 8 &amp; -3 &amp; 2\\ 4 &amp; 11 &amp; -1\\ 6 &amp; 3 &amp; 12 \end{bmatrix} ,x&#x3D;\begin{bmatrix">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-14T04:24:14.885Z">
+<meta property="article:modified_time" content="2021-12-20T13:58:44.848Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -49,7 +53,7 @@
 
 
   <div class='l_body' id='start'>
-    <aside class='l_left' layout=''>
+    <aside class='l_left' layout='post'>
     
 
 
@@ -58,96 +62,267 @@
 <div class="logo-wrap"><a class="title" href="/"><div class="main">CQmax-chen的个人博客</div></a></div>
 <nav class="menu dis-select"></nav></header>
 
-<div class="widgets"><div class='widget-wrap' id='markdown'>
-  <div class='widget-header cap dis-select'>
-    <span class='name'>CQmax个人博客</span>
-  </div>
-  <div class='widget-body fs14'>
-    
-      <p>Kirito-VR</p>
+<div class="widgets">
 
-    
-      <p><br></p>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90"><span class="toc-text">数值分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BF%AD%E4%BB%A3%E7%9F%A9%E9%98%B5"><span class="toc-text">3.迭代矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%92%E5%80%BC"><span class="toc-text">四、函数插值</span></a></li></ol></div></div></div>
 
-    
-      <p>QQ</p>
 
-    
-      <p>1050087164</p>
-
-    
-      <p><br></p>
-
-    
-  </div>
-</div>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" title="GitHub" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/08a41b181ce68.svg"/></a><a class="social" title="Music" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/cf1ae151f9e83.svg"/></a><a class="social" title="Comments" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/942ebbf1a4b91.svg"/></a></div></footer>
 
     </aside>
-    <div class='l_main list'>
+    <div class='l_main'>
       
-  
-
-<header class="header mobile-only">
-
-<div class="logo-wrap"><a class="title" href="/"><div class="main">CQmax-chen的个人博客</div></a></div>
-</header>
-
-
 
       
 
 
-  <div class='nav-wrap'>
-  <nav class='sub post cap'>
-    
-      <a class='active' href='/'>Recent</a>
-    
-    
-      
-        <a href='/categories'>Categories</a>
-      
-    
-    
-      
-        <a href='/tags'>Tags</a>
-      
-    
-    
-      
-        <a href='/archives'>Archives</a>
-      
-    
-  </nav>
-</div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2021-12-14T04:24:14.885Z">2021-12-14</time></div></div>
 
-  <div class="post-list post"><a class="post-card post " href="/2021/08/23/selnium1/"><article class="excerpt md">
-<div class="post-cover"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://source.unsplash.com/1280x640/?自动化测试,selenium,python"/></div><h2 class="post-title">自动化测试学习(一)</h2><div class="excerpt"><p> selenium自动化测试(一)
-selenium基本操作123form selenium import webdriverdriver = webdriver.Chorme(&quot;path&quot;)driver.get(&quot;url&quot;)
-导入selenium库；将自动化测试工具 webdriver 赋值于新建变量 driver 中；
-path 为chormedr...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2021-08-23T13:12:04.291Z">2021-08-23</time></span><span class="cap breadcrumb">/小书匠边些/学习日记/2021-08</span><div>
-</article></a><a class="post-card post " href="/2021/08/22/ubuntu/"><article class="excerpt md">
-<div class="post-cover"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://source.unsplash.com/1280x640/?"/></div><h2 class="post-title">2021-08-22</h2><div class="excerpt"><p>Windows下ubuntu双系统安装为完成opencv+pytorch+pycharm实现图像识别。
-系统安装准备1.UItralSO硬盘写入Ubuntu18.01.4.iso U盘（已格式化）中2.在windows硬盘中分离出50GB内存(40GB)3.windows系统下装双系统所需备条件；4.bios安全模式的禁用；5.Ubuntu的安装及分区；
-使用设备及环境1.32GB移动U盘（...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2021-08-22T03:20:18.773Z">2021-08-22</time></span><div>
-</article></a><a class="post-card post " href="/2021/08/21/hello-world/"><article class="excerpt md">
-<div class="post-cover"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://source.unsplash.com/1280x640/?"/></div><h2 class="post-title">Hello World</h2><div class="excerpt"><p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2021-08-21T05:17:03.535Z">2021-08-21</time></span><div>
-</article></a></div>
-  
-  <div class='paginator-wrap dis-select'>
-    <a class='paginator prev' href='/'>
-      <img src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/arrow/f049bbd4e88ec.svg'/>
-    </a>
-    <div class='paginator current'>
-      2<span class='sep'></span>2
+<article class='content md post'>
+
+<h2 id="数值分析"><a href="#数值分析" class="headerlink" title="数值分析"></a>数值分析</h2><h3 id="3-迭代矩阵"><a href="#3-迭代矩阵" class="headerlink" title="3.迭代矩阵"></a>3.迭代矩阵</h3><ul>
+<li><script type="math/tex; mode=display">
+求解方程组Ax=b=>
+\begin{cases}
+8x_1-3x_2+2x_3=20\\
+4x_1+11x_2-x_3=33\\
+6x_1+3x_2+12x_3=36
+\end{cases}
+\\有
+A=\begin{bmatrix}
+8 & -3 & 2\\
+4 & 11 & -1\\
+6 & 3 & 12
+\end{bmatrix}
+,x=\begin{bmatrix}x1\\x2\\x3\end{bmatrix}
+,b= \begin{bmatrix}20\\30\\36\end{bmatrix}
+,已知精确解为x^*=\begin{bmatrix}3\\2\\1\end{bmatrix}
+\\
+将Ax=b化为如下形式\\=>\begin{cases}
+x1=(+3x_2-2x_3+20)/8\\
+x2=(-4x_1+x3+33)/11\\
+x3=(-4x_1+-3x_2+36)/11
+\end{cases}
+\\
+=>x=B_0x+f，其中B_0=\begin{bmatrix}0&\frac{3}{8}&-\frac{2}{8}\\-\frac{4}{11}&0&\frac{1}{11}\\-\frac{6}{12}&-\frac{3}{12}&0\end{bmatrix},f=\begin{bmatrix}\frac{20}{8}\\\frac{33}{11}\\\frac{30}{12}\end{bmatrix}
+\\迭代之前设立一个初始值如：x^0=\begin{bmatrix}0\\0\\0\end{bmatrix},带入原式子得x^1=\begin{bmatrix}\frac{20}{8}\\\frac{33}{11}\\-\frac{36}{12}\end{bmatrix}
+\\由此类推迭代方法得
+\begin{cases}
+x^{k+1}_1=(3x_2^{k}-2x_3^{k}+20)/8\\
+x^{k+1}_2=(-4x_1^{k}+x_3^{k}+33)/8\\
+x^{k+1}_3=(-6x_1^{k}-3x_2^{k}+36)/8\\
+\end{cases}
+\\简写为x^{k+1}=B_0x^{k}+f
+,其中的k表示为迭代次数；</script></li>
+<li><p>要求A为n阶非奇异矩阵，即A的行列式的值为0；</p>
+</li>
+<li><p>构造一阶定常迭代法：</p>
+<script type="math/tex; mode=display">
+设线性方程组：Ax=b  .(3.1.1)
+\\将A分裂为：A = M-N.(3.1.2)
+\\得Ax=b=>Mx=Nx+b;
+x=M^{-1}Nx+M^{-1}b.
+\\构造一阶定常迭代法：(3.1.3)
+\begin{cases}
+x^0&(初始向量)
+\\x^{k+1} =B_jx^{k}+f&(k=0,1,..)
+\end{cases}
+\\B = M^{-1}N=M^{-1}(M-A)=I-M^{-1}A,f=M^{-1}b;称B=I-M^{-1}A为迭代矩阵；</script></li>
+<li><p>jacobi雅可比迭代法</p>
+<script type="math/tex; mode=display">
+因为:Ax=b=>Mx = Nx+b（M为A的对角元素部分，即选取M=D，A=D-N）
+\\
+将Ax=b分解成<=> 求解x=M^{-1}Nx+M^{}
+\\简单迭代法:(3.1.4)
+\begin{cases}
+x^0&(初始向量)
+\\x^{k+1} =B_jx^{k}+f&(k=0,1,..)
+\end{cases}(3.1.4)
+\\(雅可比迭代的迭代矩阵):B_j=M^{-1}N=I-D^{-1}A(定常迭代)=D^{-1}(L+U),f=D^{-1}b</script></li>
+</ul>
+<script type="math/tex; mode=display">
+于是雅可比迭代法可写为矩阵形式：\\
+x^{k+1}=D^{-1}(L+U)x^{k}+D^{-1}b\\
+B_J=D^{-1}(L+U)=
+\begin{bmatrix}
+0&-\frac{a_{12}}{a_{11}}&...&-\frac{a_{12n}}{a_{11}}\\
+-\frac{a_{21}}{a_{22}}&0&...&-\frac{a_{2n}}{a_{22}}\\
+...&...&&...\\
+-\frac{a_{n1}}{a_{nn}}&-\frac{a_{n2}}{a_{nn}}&...&0
+\end{bmatrix}\\
+因为A始终保持不变所以迭代只需矩阵元素和向量相乘：\\
+\begin{cases}
+x^{0}=(x_1^{0},x_2^{0},x_3^{0}..,x_n^{0})^T\\
+x_i^{k+1}=(b_i-\sum_{j=1,j\neq i}^{n}{}a_{ij}x_j^k)/a_{ii}
+\end{cases}</script><ul>
+<li><p>例题：</p>
+<script type="math/tex; mode=display">
+精确解 x^*=\begin{bmatrix}1.1\\1.2\\1.3\end{bmatrix}
+=>\begin{cases}
+10x_1-x_2-2x_3=7.2\\
+-x_1+10x_2-2X_3=8.3\\
+-x_1-x_2+5x_3=4.2
+\end{cases}
+\\
+\begin{cases}
+x_1^{k+1}=\frac{1}{10}(&x_2^k+2x_3^k+7.2)\\
+x_2^{k+1}=\frac{1}{10}(&x_1^k+2x_3^k+8.3)\\
+x_3^{k+1}=\frac{1}{10}(&x_1^k+x_2^k+4.2)
+\end{cases}&取x^0=(0,0,0)^T\\</script><p>| k    | x1(k)    | x2(k)    | x3(k)    |<br>| —— | ———— | ———— | ———— |<br>| 1    | 0.72     | 0.83     | 0.84     |<br>| 0    | 0.971    | 1.07     | 1.15     |<br>| …  | …      | …      | …      |<br>| 11   | 1.099993 | 1.199993 | 1.299991 |<br>| 12   | 1.099998 | 1.199998 | 1.299997 |</p>
+<ul>
+<li>如何判断解是精确收敛的：判断前后两次的值是否在一个范围(精确度e)内；</li>
+</ul>
+</li>
+<li><p>例题3 </p>
+<script type="math/tex; mode=display">
+要求\abs{x^{k+1}-x^k}_2\leq10^{-8}, \begin{cases}
+10x_1-wx_2-2x_3=1\\
+-2x_1+10x_2-x_3=0.5\\
+-x_1-2x_2+3x_3=1
+\end{cases}\\
+\begin{bmatrix}
+10 & -2 & -2\\
+-2 & 10 & -1\\
+-1 & -2 & 3
+\end{bmatrix}=
+\begin{bmatrix}
+10 & 0 & 0\\
+0 & 10 & 0\\
+0 & 0 & 10
+\end{bmatrix}-
+\begin{bmatrix}
+0 & 0 & 0\\
+2 & 0 & 0\\
+1 & 2 & 0
+\end{bmatrix}-
+\begin{bmatrix}
+0 & 2 & 2\\
+0 & 0 & 1\\
+0 & 0 & 0
+\end{bmatrix}=D-L-U\\
+B_J=I-D^{-1}A=
+\begin{bmatrix}
+1 &  & \\
+ & 1 & \\
+ &  & 1
+\end{bmatrix}-
+\begin{bmatrix}
+0.1 &  & \\
+ & 0.1 & \\
+ &  & 1/3
+\end{bmatrix}
+\begin{bmatrix}
+10 & -2 & -2\\
+-2 & 10 & -1\\
+-1 &  -2 & 3
+\end{bmatrix}=\\=
+\begin{bmatrix}
+0 & 0.2 & 0.2\\
+0.2 & 0 & 0.1\\
+0.33333 & 0.66667 & 0
+\end{bmatrix}\\
+\begin{bmatrix}
+1 &  & \\
+ & 1 & \\
+ &  & 1
+\end{bmatrix}\\
+g=D^{-1}b=\begin{bmatrix}
+0.1  \\
+0.05 \\
+0.3333
+\end{bmatrix}</script></li>
+</ul>
+<h2 id="四、函数插值"><a href="#四、函数插值" class="headerlink" title="四、函数插值"></a>四、函数插值</h2><script type="math/tex; mode=display">
+有y=f(x),为复杂实函数，通过x_1,x_2,x_3,...,x_n,n个节点信息，\\构造一个简单的函数P(x)进行拟合复杂函数，使得P(x)作为y=f(x)的近似表达式：\\
+y=f(x)\approx P(x)\\
+使得P(x_i)=f(x_i)=y_i,(i=0,1,...n)\\
+这类问题就称为插值问题，P(x)称为插值函数，P(x)一般取最简单又便于计算得函数。\\
+有y = f(x) 是区间[a,b]上得一个实函数，x_i(i=0,1,...,n)是[a,b]上得n+1个互异实数，\\已知y=f(x)在x_i的值为y_i=f(x_i),求一个次数不超过n的多项式P_n(x)使其满足：\\
+P_n(x_i)=y_i,(i=0,1,...,n),4.0.1\\
+这就是多项式插值问题</script><ul>
+<li><p>定理1：</p>
+<script type="math/tex; mode=display">
+设节点x_i互异，则满足插值条件P_n(x_i)=y_i的次数不超过n的多项式存在且唯一</script><p>寻找多项式的方法:</p>
+<script type="math/tex; mode=display">
+l_i(x)\begin{cases}
+1,x=x_i\\
+0,x\neq x_i
+\end{cases}
+\\有 l_i(x_j)=A(x-x_0)...(x-x_{i-1})(x-x_{i+1})...(x-x_n),A为常数
+\\故由l_i(x_i)=1得A=\frac{1}{(x-x_0)...(x-x_{i-1})(x-x_{i+1})...(x-x_n)}\\
+所以l_i(x)=\frac{(x-x_0)...(x-x_{i-1})(x-x_{i+1})...(x-x_n)}
+{(x_i-x_0)...(x_i-x_{i-1})(x_i-x_{i+1})...(x_i-x_n)}\\
+称为拉格朗日基函数；</script></li>
+<li><p>基函数：是构造拉格朗日函数一部分</p>
+</li>
+<li><p>例如：两点线性插值问题</p>
+<script type="math/tex; mode=display">
+已知函数f(x)在点x_0和x_1得函数值为y_0=f(x_0),y_1=f(x_1),求线性函数：\\
+L(x)=a_0+a_1x,\\使满足条件L(x_0)=y_0,L(x_1)=y_1,'条件可求出两个基函数的系数'\\
+l_0(x)=\frac{x-x_1}{x_0-x_1},l_1(x)=\frac{x-x_0}{x_1-x_0}\\
+由此可以得出：
+\\L_0(x)=y_0\frac{x-x_1}{x_0-x_1}+y_1\frac{x-x_0}{x_1-x_0}</script></li>
+</ul>
+<ol>
+<li><p>拉格朗日插值多项式：</p>
+<script type="math/tex; mode=display">
+通过拉格朗日基函数l_i(x),构造次数不超过n的多项式
+\\L_n(x)=y_0l_0(x)+y_1l_1(x)+...+y_nl_n(x)=\sum_{i=0}^n{y_il_i(x)}\\
+满足L_n(x_j)=y_j\\
+称为拉格朗日插值多项式</script><ul>
+<li>当n=1时称为线性插值，为过两点的直线；n=2时又叫抛物线插值，过三点的抛物线</li>
+</ul>
+</li>
+<li><p>插值误差：</p>
+<ul>
+<li>插值余项：<script type="math/tex; mode=display">
+定理2： 设f(x)在区间[a,b]上存在n+1阶导数，\\
+x\in [a,b](i=0,1,...,n)为n+1个互异节点，\\
+则对任何x \in [a,b]，有\\
+R_n(x)=f(x)-L_n(x)=\frac{f^{n+1}(\xi)}{(n+1)!}\omega_{n+1}(x)</script></li>
+</ul>
+</li>
+<li><p>差商和Newton插值：</p>
+<ul>
+<li><p>插值多项式的唯一性定理；拉格朗日插值不具备继承性：即若增加一个新的节点时，全部基函数l_i(x)都需要重新进行计算；</p>
+</li>
+<li><p>希望每增加一个节点，只在原有插值的基础上附加部分计算量即可；</p>
+</li>
+<li><p>差商：</p>
+<script type="math/tex; mode=display">
+定义1 称\\
+f[x_0,x_1]=\frac{f(x_0)-f(x_1)}{x_0-x_1}\\
+为f(x)在x_0、x_1点的一阶差商；\\
+f[x_0,x_1,x_2]=\frac{f[x_0,x_1]-f[x_1,x_2]}{x_0-x_2}</script></li>
+</ul>
+</li>
+</ol>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2021/11/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/">计算机网络的复习<span class="note">Older</span></a><div class="line"></div><div class="line"></div><a id="more" href="/archives">All Articles</a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      Join the discussion
     </div>
-    <a class='paginator next disable' href='/'>
-      <img src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/arrow/064b95430caf4.svg'/>
-    </a>
-  </div>
+    <div class='cmt-body valine'>
+      
 
+<div id="valine_container" class="valine_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </div>
+  </div>
 
 
 
