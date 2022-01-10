@@ -4,7 +4,7 @@
 <head>
   <meta name="generator" content="Hexo 5.4.0">
   <meta charset="utf-8">
-  <meta name="robots" content="noindex,follow">
+  
 
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
@@ -17,16 +17,22 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>Archives - CQmax-chen的个人博客</title>
+  <title>CQmax-chen的个人博客</title>
 
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Archives">
-<meta property="og:url" content="http://example.com/archives/2021/09/index.html">
+    <meta name="description" content="JAVA习题缺漏知识点总结   static 静态变量，以及静态方法：Java static关键字（静态变量和静态方法） (biancheng.net)  总结：   字段修饰符：  local variable  重载和重写的区别：  substring  constructor  stringBuffer&amp;&amp;stringBuilding  StringBuffer是线程安全 S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CQmax-chen的个人博客">
+<meta property="og:url" content="http://example.com/2021/12/30/JAVA%E4%B9%A0%E9%A2%98%E7%BC%BA%E6%BC%8F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="CQmax-chen的个人博客">
+<meta property="og:description" content="JAVA习题缺漏知识点总结   static 静态变量，以及静态方法：Java static关键字（静态变量和静态方法） (biancheng.net)  总结：   字段修饰符：  local variable  重载和重写的区别：  substring  constructor  stringBuffer&amp;&amp;stringBuilding  StringBuffer是线程安全 S">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/74260/AppData/Roaming/Typora/typora-user-images/image-20211230202451690.png">
+<meta property="article:published_time" content="2021-12-30T13:56:15.959Z">
+<meta property="article:modified_time" content="2022-01-09T12:54:28.265Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/74260/AppData/Roaming/Typora/typora-user-images/image-20211230202451690.png">
   
   
 
@@ -49,7 +55,7 @@
 
 
   <div class='l_body' id='start'>
-    <aside class='l_left' layout=''>
+    <aside class='l_left' layout='post'>
     
 
 
@@ -58,359 +64,123 @@
 <div class="logo-wrap"><a class="title" href="/"><div class="main">CQmax-chen的个人博客</div></a></div>
 <nav class="menu dis-select"></nav></header>
 
-<div class="widgets"><div class='widget-wrap' id='markdown'>
-  <div class='widget-header cap dis-select'>
-    <span class='name'>CQmax个人博客</span>
-  </div>
-  <div class='widget-body fs14'>
-    
-      <p>Kirito-VR</p>
+<div class="widgets">
 
-    
-      <p><br></p>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA%E4%B9%A0%E9%A2%98%E7%BC%BA%E6%BC%8F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"><span class="toc-text">JAVA习题缺漏知识点总结</span></a></li></ol></div></div></div>
 
-    
-      <p>QQ</p>
 
-    
-      <p>1050087164</p>
-
-    
-      <p><br></p>
-
-    
-  </div>
-</div>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" title="GitHub" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/08a41b181ce68.svg"/></a><a class="social" title="Music" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/cf1ae151f9e83.svg"/></a><a class="social" title="Comments" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/942ebbf1a4b91.svg"/></a></div></footer>
 
     </aside>
-    <div class='l_main list'>
+    <div class='l_main'>
       
-  
-
-<header class="header mobile-only">
-
-<div class="logo-wrap"><a class="title" href="/"><div class="main">CQmax-chen的个人博客</div></a></div>
-</header>
-
-
 
       
 
-  
-  <div class='nav-wrap'>
-  <nav class='sub post cap'>
-    
-      <a href='/'>Recent</a>
-    
-    
-      
-        <a href='/categories'>Categories</a>
-      
-    
-    
-      
-        <a href='/tags'>Tags</a>
-      
-    
-    
-      
-        <a class='active' href='/archives'>Archives</a>
-      
-    
-  </nav>
-</div>
 
-  <div class='post-list'>
-  	
-  	
-  		
-  		
-  			
-  		
-  	
-  		
-  		
-  			
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  	
-  		<article class='post-card' id='archive'>
-  			<div class='archive-year h4'>2022</div>
-  			
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				<div>
-            <a class='post fs14' href="/2022/01/10/Let%20Us%20To%20Study%20Requests%20of%20Python/">
-    					<time>01-10</time>
-    					<span>
-                
-      						2022-01-10
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  		</article>
-  	
-  		<article class='post-card' id='archive'>
-  			<div class='archive-year h4'>2021</div>
-  			
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				<div>
-            <a class='post fs14' href="/2021/12/30/JAVA%E4%B9%A0%E9%A2%98%E7%BC%BA%E6%BC%8F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">
-    					<time>12-30</time>
-    					<span>
-                
-      						2021-12-30
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/12/14/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90/">
-    					<time>12-14</time>
-    					<span>
-                
-      						2021-12-14
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/11/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/">
-    					<time>11-13</time>
-    					<span>
-                
-      						计算机网络的复习
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/11/03/Linux%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/">
-    					<time>11-03</time>
-    					<span>
-                
-      						Linux知识点汇总
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/11/01/pandas%E5%BA%93%E3%81%AE%E5%AD%A6%E4%B9%A0/">
-    					<time>11-01</time>
-    					<span>
-                
-      						pandas库の学习
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/10/24/bbs_class1/">
-    					<time>10-24</time>
-    					<span>
-                
-      						Blueclass学习
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/10/22/datasharecontest/">
-    					<time>10-22</time>
-    					<span>
-                
-      						数据开放大赛初赛总结
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/10/08/machinestudy/">
-    					<time>10-08</time>
-    					<span>
-                
-      						机器学习（一）
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/09/28/web2/">
-    					<time>09-28</time>
-    					<span>
-                
-      						web前端学习（二）
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/09/07/web/">
-    					<time>09-07</time>
-    					<span>
-                
-      						web前端学习
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/08/26/%E6%95%B0%E6%A8%A1%E8%AE%AD%E7%BB%831/">
-    					<time>08-26</time>
-    					<span>
-                
-      						分析
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/08/23/selnium1/">
-    					<time>08-23</time>
-    					<span>
-                
-      						自动化测试学习(一)
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/08/22/ubuntu/">
-    					<time>08-22</time>
-    					<span>
-                
-      						2021-08-22
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div>
-            <a class='post fs14' href="/2021/08/21/hello-world/">
-    					<time>08-21</time>
-    					<span>
-                
-      						Hello World
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  		</article>
-  	
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2021-12-30T13:56:15.959Z">2021-12-30</time></div></div>
+
+<article class='content md post'>
+
+<h2 id="JAVA习题缺漏知识点总结"><a href="#JAVA习题缺漏知识点总结" class="headerlink" title="JAVA习题缺漏知识点总结"></a>JAVA习题缺漏知识点总结</h2><ol>
+<li><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\74260\AppData\Roaming\Typora\typora-user-images\image-20211230202451690.png" alt="image-20211230202451690"></p>
+</li>
+<li><p>static 静态变量，以及静态方法：<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/6038.html">Java static关键字（静态变量和静态方法） (biancheng.net)</a></p>
+<ul>
+<li>总结：</li>
+</ul>
+</li>
+<li><p>字段修饰符：</p>
+</li>
+<li><p>local variable</p>
+</li>
+<li><p>重载和重写的区别：</p>
+</li>
+<li><p>substring</p>
+</li>
+<li><p>constructor</p>
+</li>
+<li><p>stringBuffer&amp;&amp;stringBuilding</p>
+<blockquote>
+<p>StringBuffer是线程安全</p>
+<p>StringBuilder不是线程安全</p>
+</blockquote>
+</li>
+<li><p>return x/y</p>
+</li>
+<li><p>接口可由protected修饰吗</p>
+</li>
+<li><p>包定义，以及私有类是否能放在包中</p>
+</li>
+<li><p>标识符规则</p>
+</li>
+<li><p>变量类型运算：</p>
+<blockquote>
+<ul>
+<li>整型：int、byte、long、short</li>
+<li>浮点型：float、double</li>
+<li>字符型：char</li>
+<li>布尔型：boolean</li>
+<li>数据类型间的转换：<ul>
+<li>自动类型转换：（编译器自动完成类型转换）<ol>
+<li>具体转换规则：byte、short、char - -&gt; int —&gt; long —&gt; float —&gt; double</li>
+<li>byte\short\char属于同一层次类型，之间不会相互转换，运算时会首先转换成int型；</li>
+<li>当多种数据类型进行混合运算时，java会首先将所有数据转换为表示范围最大的数据类型再进行运算；</li>
+</ol>
+</li>
+<li>强制类型转换：（通过代码强制编译器完成类型转换）<ol>
+<li>转换规则：从存储范围大的类型转换为存储范围小的类型。</li>
+<li>具体转换规则：double—&gt;float—&gt;long —&gt;int —&gt;byte\short]char</li>
+<li>代码语法格式：（想要转换到的数据类型）需要转换的数值变量</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>变量的默认初始值</p>
+<p>| 类型                          | 默认初始值 |<br>| ——————————————- | ————— |<br>| 整数型（byte\short\int\long） | 0          |<br>| 单精度浮点型(float)           | 0.0f       |<br>| 双精度浮点型(double)          | 0.0d       |<br>| 字符型(char)                  | \u0000     |<br>| 布尔类型(boolean)             | false      |<br>| 引用类型变量                  | null       |</p>
+</li>
+</ul>
+</li>
+<li><p>类与封装：</p>
+<p>封装的目的：1. 简化编程；2. 增强安全性；</p>
+<blockquote>
+<p>为什么java编译文件中只能有一个public类？</p>
+<p>答：在java中，为使在多个编译单元中有一个统一的接口，即public class作为唯一接口，将所有的接口子类和包统一起来管理与实施；</p>
+<p>此外，在java中public类可以不存在，但存在必须唯一；</p>
+<p>public类的名称必须完全与含有该编译单元的文件名相同，包含大小写；</p>
+</blockquote>
+</li>
+</ol>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2021/12/14/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90/">undefined<span class="note">Older</span></a><div class="line"></div><a id="prev" href="/2022/01/10/Let%20Us%20To%20Study%20Requests%20of%20Python/">undefined<span class="note">Newer</span></a><div class="line"></div><a id="more" href="/archives">All Articles</a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      Join the discussion
+    </div>
+    <div class='cmt-body valine'>
+      
+
+<div id="valine_container" class="valine_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </div>
   </div>
+
 
 
       
