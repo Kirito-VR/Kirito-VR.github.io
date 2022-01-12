@@ -20,17 +20,19 @@
   <title>CQmax-chen的个人博客</title>
 
   
-    <meta name="description" content="数值分析3.迭代矩阵  求解方程组Ax&#x3D;b&#x3D;&gt; \begin{cases} 8x_1-3x_2+2x_3&#x3D;20\\ 4x_1+11x_2-x_3&#x3D;33\\ 6x_1+3x_2+12x_3&#x3D;36 \end{cases} \\有 A&#x3D;\begin{bmatrix} 8 &amp; -3 &amp; 2\\ 4 &amp; 11 &amp; -1\\ 6 &amp; 3 &amp; 12 \end{bmatrix} ,x&#x3D;\begin{bmatrix">
+    <meta name="description" content="假期的一天一种建模方法Day1：GM预测模型参考资料：GM预测模型学习参考链接  GM预测模型，又称灰度预测模型，是一种较为简单的预测方法，通常使用在：  数据量较少，无明显规律的时候。  两变量之间存在内在联系的时候  短期的预测  具体函数关系未知；    GM预测一般使用的方法：  累加生成序列：将我们所认为的因变量进行操作，通过累加生成一个序列作为因变量，再进行关系的探究。  | 序号 |">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CQmax-chen的个人博客">
-<meta property="og:url" content="http://example.com/2021/12/14/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90/index.html">
+<meta property="og:url" content="http://example.com/2022/01/11/%E5%81%87%E6%9C%9F%E7%9A%84%E4%B8%80%E5%A4%A9%E4%B8%80%E7%A7%8D%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="CQmax-chen的个人博客">
-<meta property="og:description" content="数值分析3.迭代矩阵  求解方程组Ax&#x3D;b&#x3D;&gt; \begin{cases} 8x_1-3x_2+2x_3&#x3D;20\\ 4x_1+11x_2-x_3&#x3D;33\\ 6x_1+3x_2+12x_3&#x3D;36 \end{cases} \\有 A&#x3D;\begin{bmatrix} 8 &amp; -3 &amp; 2\\ 4 &amp; 11 &amp; -1\\ 6 &amp; 3 &amp; 12 \end{bmatrix} ,x&#x3D;\begin{bmatrix">
+<meta property="og:description" content="假期的一天一种建模方法Day1：GM预测模型参考资料：GM预测模型学习参考链接  GM预测模型，又称灰度预测模型，是一种较为简单的预测方法，通常使用在：  数据量较少，无明显规律的时候。  两变量之间存在内在联系的时候  短期的预测  具体函数关系未知；    GM预测一般使用的方法：  累加生成序列：将我们所认为的因变量进行操作，通过累加生成一个序列作为因变量，再进行关系的探究。  | 序号 |">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-12-14T04:24:14.885Z">
-<meta property="article:modified_time" content="2021-12-24T06:42:13.532Z">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-32360f1cdecc90c71c6f68e556a8a2bd_720w.jpg">
+<meta property="article:published_time" content="2022-01-11T09:41:32.441Z">
+<meta property="article:modified_time" content="2022-01-12T12:54:12.794Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic2.zhimg.com/80/v2-32360f1cdecc90c71c6f68e556a8a2bd_720w.jpg">
   
   
 
@@ -64,7 +66,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90"><span class="toc-text">数值分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BF%AD%E4%BB%A3%E7%9F%A9%E9%98%B5"><span class="toc-text">3.迭代矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%92%E5%80%BC"><span class="toc-text">四、函数插值</span></a></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Day1%EF%BC%9AGM%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">Day1：GM预测模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%95%E4%B8%BA%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%EF%BC%9F"><span class="toc-text">何为最小二乘法？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Day2-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90"><span class="toc-text">Day2:主成分分析</span></a></li></ol></div></div></div>
 
 
 </div>
@@ -77,246 +79,88 @@
       
 
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2021-12-14T04:24:14.885Z">2021-12-14</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2022-01-11T09:41:32.441Z">2022-01-11</time></div></div>
 
 <article class='content md post'>
 
-<h2 id="数值分析"><a href="#数值分析" class="headerlink" title="数值分析"></a>数值分析</h2><h3 id="3-迭代矩阵"><a href="#3-迭代矩阵" class="headerlink" title="3.迭代矩阵"></a>3.迭代矩阵</h3><ul>
-<li><script type="math/tex; mode=display">
-求解方程组Ax=b=>
-\begin{cases}
-8x_1-3x_2+2x_3=20\\
-4x_1+11x_2-x_3=33\\
-6x_1+3x_2+12x_3=36
-\end{cases}
-\\有
-A=\begin{bmatrix}
-8 & -3 & 2\\
-4 & 11 & -1\\
-6 & 3 & 12
-\end{bmatrix}
-,x=\begin{bmatrix}x1\\x2\\x3\end{bmatrix}
-,b= \begin{bmatrix}20\\30\\36\end{bmatrix}
-,已知精确解为x^*=\begin{bmatrix}3\\2\\1\end{bmatrix}
-\\
-将Ax=b化为如下形式\\=>\begin{cases}
-x1=(+3x_2-2x_3+20)/8\\
-x2=(-4x_1+x3+33)/11\\
-x3=(-4x_1+-3x_2+36)/11
-\end{cases}
-\\
-=>x=B_0x+f，其中B_0=\begin{bmatrix}0&\frac{3}{8}&-\frac{2}{8}\\-\frac{4}{11}&0&\frac{1}{11}\\-\frac{6}{12}&-\frac{3}{12}&0\end{bmatrix},f=\begin{bmatrix}\frac{20}{8}\\\frac{33}{11}\\\frac{30}{12}\end{bmatrix}
-\\迭代之前设立一个初始值如：x^0=\begin{bmatrix}0\\0\\0\end{bmatrix},带入原式子得x^1=\begin{bmatrix}\frac{20}{8}\\\frac{33}{11}\\-\frac{36}{12}\end{bmatrix}
-\\由此类推迭代方法得
-\begin{cases}
-x^{k+1}_1=(3x_2^{k}-2x_3^{k}+20)/8\\
-x^{k+1}_2=(-4x_1^{k}+x_3^{k}+33)/8\\
-x^{k+1}_3=(-6x_1^{k}-3x_2^{k}+36)/8\\
-\end{cases}
-\\简写为x^{k+1}=B_0x^{k}+f
-,其中的k表示为迭代次数；</script></li>
-<li><p>要求A为n阶非奇异矩阵，即A的行列式的值为0；</p>
-</li>
-<li><p>构造一阶定常迭代法：</p>
-<script type="math/tex; mode=display">
-设线性方程组：Ax=b  .(3.1.1)
-\\将A分裂为：A = M-N.(3.1.2)
-\\得Ax=b=>Mx=Nx+b;
-x=M^{-1}Nx+M^{-1}b.
-\\构造一阶定常迭代法：(3.1.3)
-\begin{cases}
-x^0&(初始向量)
-\\x^{k+1} =B_jx^{k}+f&(k=0,1,..)
-\end{cases}
-\\B = M^{-1}N=M^{-1}(M-A)=I-M^{-1}A,f=M^{-1}b;称B=I-M^{-1}A为迭代矩阵；</script></li>
-<li><p>jacobi雅可比迭代法</p>
-<script type="math/tex; mode=display">
-因为:Ax=b=>Mx = Nx+b（M为A的对角元素部分，即选取M=D，A=D-N）
-\\
-将Ax=b分解成<=> 求解x=M^{-1}Nx+M^{}
-\\简单迭代法:(3.1.4)
-\begin{cases}
-x^0&(初始向量)
-\\x^{k+1} =B_jx^{k}+f&(k=0,1,..)
-\end{cases}(3.1.4)
-\\(雅可比迭代的迭代矩阵):B_j=M^{-1}N=I-D^{-1}A(定常迭代)=D^{-1}(L+U),f=D^{-1}b</script></li>
-</ul>
-<script type="math/tex; mode=display">
-于是雅可比迭代法可写为矩阵形式：\\
-x^{k+1}=D^{-1}(L+U)x^{k}+D^{-1}b\\
-B_J=D^{-1}(L+U)=
-\begin{bmatrix}
-0&-\frac{a_{12}}{a_{11}}&...&-\frac{a_{12n}}{a_{11}}\\
--\frac{a_{21}}{a_{22}}&0&...&-\frac{a_{2n}}{a_{22}}\\
-...&...&&...\\
--\frac{a_{n1}}{a_{nn}}&-\frac{a_{n2}}{a_{nn}}&...&0
-\end{bmatrix}\\
-因为A始终保持不变所以迭代只需矩阵元素和向量相乘：\\
-\begin{cases}
-x^{0}=(x_1^{0},x_2^{0},x_3^{0}..,x_n^{0})^T\\
-x_i^{k+1}=(b_i-\sum_{j=1,j\neq i}^{n}{}a_{ij}x_j^k)/a_{ii}
-\end{cases}</script><ul>
-<li><p>例题：</p>
-<script type="math/tex; mode=display">
-精确解 x^*=\begin{bmatrix}1.1\\1.2\\1.3\end{bmatrix}
-=>\begin{cases}
-10x_1-x_2-2x_3=7.2\\
--x_1+10x_2-2X_3=8.3\\
--x_1-x_2+5x_3=4.2
-\end{cases}
-\\
-\begin{cases}
-x_1^{k+1}=\frac{1}{10}(&x_2^k+2x_3^k+7.2)\\
-x_2^{k+1}=\frac{1}{10}(&x_1^k+2x_3^k+8.3)\\
-x_3^{k+1}=\frac{1}{10}(&x_1^k+x_2^k+4.2)
-\end{cases}&取x^0=(0,0,0)^T\\</script><p>| k    | x1(k)    | x2(k)    | x3(k)    |<br>| —— | ———— | ———— | ———— |<br>| 1    | 0.72     | 0.83     | 0.84     |<br>| 0    | 0.971    | 1.07     | 1.15     |<br>| …  | …      | …      | …      |<br>| 11   | 1.099993 | 1.199993 | 1.299991 |<br>| 12   | 1.099998 | 1.199998 | 1.299997 |</p>
+<h1 id="假期的一天一种建模方法"><a href="#假期的一天一种建模方法" class="headerlink" title="假期的一天一种建模方法"></a>假期的一天一种建模方法</h1><h2 id="Day1：GM预测模型"><a href="#Day1：GM预测模型" class="headerlink" title="Day1：GM预测模型"></a>Day1：GM预测模型</h2><p>参考资料：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/421156968">GM预测模型学习参考链接</a></p>
+<ol>
+<li><p>GM预测模型，又称灰度预测模型，是一种较为简单的预测方法，通常使用在：</p>
 <ul>
-<li>如何判断解是精确收敛的：判断前后两次的值是否在一个范围(精确度e)内；</li>
-</ul>
+<li><p>数据量较少，无明显规律的时候。</p>
 </li>
-<li><p>例题3 </p>
-<script type="math/tex; mode=display">
-要求\abs{x^{k+1}-x^k}_2\leq10^{-8}, \begin{cases}
-10x_1-wx_2-2x_3=1\\
--2x_1+10x_2-x_3=0.5\\
--x_1-2x_2+3x_3=1
-\end{cases}\\
-\begin{bmatrix}
-10 & -2 & -2\\
--2 & 10 & -1\\
--1 & -2 & 3
-\end{bmatrix}=
-\begin{bmatrix}
-10 & 0 & 0\\
-0 & 10 & 0\\
-0 & 0 & 10
-\end{bmatrix}-
-\begin{bmatrix}
-0 & 0 & 0\\
-2 & 0 & 0\\
-1 & 2 & 0
-\end{bmatrix}-
-\begin{bmatrix}
-0 & 2 & 2\\
-0 & 0 & 1\\
-0 & 0 & 0
-\end{bmatrix}=D-L-U\\
-B_J=I-D^{-1}A=
-\begin{bmatrix}
-1 &  & \\
- & 1 & \\
- &  & 1
-\end{bmatrix}-
-\begin{bmatrix}
-0.1 &  & \\
- & 0.1 & \\
- &  & 1/3
-\end{bmatrix}
-\begin{bmatrix}
-10 & -2 & -2\\
--2 & 10 & -1\\
--1 &  -2 & 3
-\end{bmatrix}=\\=
-\begin{bmatrix}
-0 & 0.2 & 0.2\\
-0.2 & 0 & 0.1\\
-0.33333 & 0.66667 & 0
-\end{bmatrix}\\
-\begin{bmatrix}
-1 &  & \\
- & 1 & \\
- &  & 1
-\end{bmatrix}\\
-g=D^{-1}b=\begin{bmatrix}
-0.1  \\
-0.05 \\
-0.3333
-\end{bmatrix}</script></li>
-</ul>
-<h2 id="四、函数插值"><a href="#四、函数插值" class="headerlink" title="四、函数插值"></a>四、函数插值</h2><script type="math/tex; mode=display">
-有y=f(x),为复杂实函数，通过x_1,x_2,x_3,...,x_n,n个节点信息，\\构造一个简单的函数P(x)进行拟合复杂函数，使得P(x)作为y=f(x)的近似表达式：\\
-y=f(x)\approx P(x)\\
-使得P(x_i)=f(x_i)=y_i,(i=0,1,...n)\\
-这类问题就称为插值问题，P(x)称为插值函数，P(x)一般取最简单又便于计算得函数。\\
-有y = f(x) 是区间[a,b]上得一个实函数，x_i(i=0,1,...,n)是[a,b]上得n+1个互异实数，\\已知y=f(x)在x_i的值为y_i=f(x_i),求一个次数不超过n的多项式P_n(x)使其满足：\\
-P_n(x_i)=y_i,(i=0,1,...,n),4.0.1\\
-这就是多项式插值问题</script><ul>
-<li><p>定理1：</p>
-<script type="math/tex; mode=display">
-设节点x_i互异，则满足插值条件P_n(x_i)=y_i的次数不超过n的多项式存在且唯一</script><p>寻找多项式的方法:</p>
-<script type="math/tex; mode=display">
-l_i(x)\begin{cases}
-1,x=x_i\\
-0,x\neq x_i
-\end{cases}
-\\有 l_i(x_j)=A(x-x_0)...(x-x_{i-1})(x-x_{i+1})...(x-x_n),A为常数
-\\故由l_i(x_i)=1得A=\frac{1}{(x-x_0)...(x-x_{i-1})(x-x_{i+1})...(x-x_n)}\\
-所以l_i(x)=\frac{(x-x_0)...(x-x_{i-1})(x-x_{i+1})...(x-x_n)}
-{(x_i-x_0)...(x_i-x_{i-1})(x_i-x_{i+1})...(x_i-x_n)}\\
-称为拉格朗日基函数；</script></li>
-<li><p>基函数：是构造拉格朗日函数一部分</p>
+<li><p>两变量之间存在内在联系的时候</p>
 </li>
-<li><p>例如：两点线性插值问题</p>
-<script type="math/tex; mode=display">
-已知函数f(x)在点x_0和x_1得函数值为y_0=f(x_0),y_1=f(x_1),求线性函数：\\
-L(x)=a_0+a_1x,\\使满足条件L(x_0)=y_0,L(x_1)=y_1,'条件可求出两个基函数的系数'\\
-l_0(x)=\frac{x-x_1}{x_0-x_1},l_1(x)=\frac{x-x_0}{x_1-x_0}\\
-由此可以得出：
-\\L_0(x)=y_0\frac{x-x_1}{x_0-x_1}+y_1\frac{x-x_0}{x_1-x_0}</script></li>
+<li><p>短期的预测</p>
+</li>
+<li><p>具体函数关系未知；</p>
+</li>
 </ul>
 <ol>
-<li><p>拉格朗日插值多项式：</p>
+<li><p>GM预测一般使用的方法：</p>
+<ul>
+<li>累加生成序列：将我们所认为的因变量进行操作，通过累加生成一个序列作为因变量，再进行关系的探究。</li>
+</ul>
+<p>| 序号 | 1    | 2     | 3     | 4    |<br>| —— | —— | ——- | ——- | —— |<br>| 年份 | 1986 | 1987  | 1988  | 1989 |<br>| x0   | 71.1 | 72.4  | 72.4  | 72.1 |<br>| x1   | 71.1 | 143.5 | 215.9 | 288  |</p>
+<p>可以看见x0作为原因变量，难以看出年份（自变量）和x0之间的函数关系；</p>
+<p>x1是x0经过累加所生成的序列。两者之间的关系则明显了许多。</p>
+<blockquote>
+<p>对于新生成的新序列，和自变量所构建出来的图像如指数曲线(或直线)，直线可以简单的求出函数关系，从而预测下一年的数据，而指数函数需要通过常微分方程进行解决；</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>灰色关联预测分析GM(1,1)通常可分为以下五个步骤：</p>
+<ul>
+<li><p>级比检验：对于灰色预测模型的数据序列是否有着合适的规律性，是否可得到满意的模型等，该步骤仅为一般用于初步检验数据，使建模高效化：</p>
+<ul>
+<li><p>为确定数据使用GM(1,1)模型的可行性，避免白忙活，需要数据的级比检验；</p>
+</li>
+<li><p>计算</p>
 <script type="math/tex; mode=display">
-通过拉格朗日基函数l_i(x),构造次数不超过n的多项式
-\\L_n(x)=y_0l_0(x)+y_1l_1(x)+...+y_nl_n(x)=\sum_{i=0}^n{y_il_i(x)}\\
-满足L_n(x_j)=y_j\\
-称为拉格朗日插值多项式</script><ul>
-<li>当n=1时称为线性插值，为过两点的直线；n=2时又叫抛物线插值，过三点的抛物线</li>
+\lambda(k)=\frac{x^0(k-1)}{x^0(k)},k=1,2,3,..若\lambda(k)在区间(e^{-\frac{2}{n+1}},e^{\frac{2}{n+2}}),说明GM(1,1)模型可以使用;</script></li>
+<li><p>如果在区间之外，可以尝试将数据平移变换，也就是给每个数据加上任意常数c,再次判断数据是否满足级比检验；</p>
+</li>
 </ul>
 </li>
-<li><p>插值误差：</p>
-<ul>
-<li>插值余项：<script type="math/tex; mode=display">
-定理2： 设f(x)在区间[a,b]上存在n+1阶导数，\\
-x\in [a,b](i=0,1,...,n)为n+1个互异节点，\\
-则对任何x \in [a,b]，有\\
-R_n(x)=f(x)-L_n(x)=\frac{f^{n+1}(\xi)}{(n+1)!}\omega_{n+1}(x)</script></li>
-</ul>
+<li><p>模型的构建：</p>
+<ol>
+<li><p>模型数据的整理：在级别检验后的数据，通过累加生成序列的方法进行数据的整理，将关系显化出来；根据数据走向和趋势（直线或指数曲线）选择合适的拟合函数；</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic2.zhimg.com/80/v2-32360f1cdecc90c71c6f68e556a8a2bd_720w.jpg" alt="累加生成序列的数据和自变量之间的关系"></p>
 </li>
-<li><p>差商和Newton插值：</p>
-<ul>
-<li><p>插值多项式的唯一性定理；拉格朗日插值不具备继承性：即若增加一个新的节点时，全部基函数l_i(x)都需要重新进行计算；</p>
-</li>
-<li><p>希望每增加一个节点，只在原有插值的基础上附加部分计算量即可；</p>
-</li>
-<li><p>差商：</p>
+<li><p>通常情况下的数据走势为指数形式，直线形式容易解得，下面讨论，指数曲线形式的情况：</p>
+<p>可设，</p>
 <script type="math/tex; mode=display">
-定义1 称\\
-f[x_0,x_1]=\frac{f(x_0)-f(x_1)}{x_0-x_1}\\
-为f(x)在x_0、x_1点的一阶差商；\\
-(任意两个组合)f[x_0,x_1,x_2]=\frac{f[x_0,x_1]-f[x_1,x_2]}{x_0-x_2}\\
-称为f(x)在x_0,x_1,x_2点的2阶差商\\
-f[x_0,x_1,...,x_n]=\frac{f[x_0,x_1,...,x_{n-2},x_{n-1}]-f[x_0,x_1,...,x_{n-1},x_{n}]}{x_0-x_n}\\
-称为f(x)在x_0,x_1,...,x_n点的n阶差商</script></li>
+x^{(1)}_k=\sum_{i=0}^kx^{(0)}_i，此为累加生成序列\\
+构建一阶常微分方程拟合指数函数；\\
+\frac{dx^{(1)}_k}{dt}+ax^{(1)}_k=u,获得x序列于时间t之间的关系;</script></li>
+</ol>
+</li>
 </ul>
 </li>
 </ol>
 <ul>
-<li><p>通过差商构造牛顿插值多项式：</p>
-<p>设x是[a,b]上一点，由一阶差商定义得：</p>
-<script type="math/tex; mode=display">
-f[x,x_0]=\frac{f(x)-(x0)}{x-x_0}，移项\\
-得f(x)=f(x_0)+f[x,x_0](x-x_0)\\
-f[x,x_0]=f[x_0,x_1]+f[x,x_0,x_1](x-x_1)\\
-...\\
-f[x,x_0,...,x_{n-1}]=f[x_0,x_1,...,x_n]+f[x,x_0,...,x_n](x-x_n)\\
-由此可以推出：\\
-f(x)=f(x_0)+f[x_0,x_1](x-x_0)+f[x,x_0,x_1](x-x_0)(x-x_1)
-\\将差商用逐步替代。\\
-N_n(x)=f(x_0)+f[x_0,x_1](x-x_0)+f[x_0,x_1,x_2](x-x_0)(x-x_1)+\\
-...+f[x_0,x_1,...x_n](x-x_0)(x-x_1)...(x-x_{n-1});
-\\R_n(x)=f[x,x_0,x_1...,x_n](x-x_0)(x-x_1)...(x-x_{n})\\
-由插值多项式得唯一性知，牛顿插值多项式和拉格朗日插值多项式相等：\\L_n(x)=N_n(x)\\</script></li>
+<li><p>后验差比检验：</p>
+<p>在进行模型构建后，会得到后验差比C值，该值为残差方差 / 数据方差；其用于衡量模型的拟合精度情况，C值越小越好，一般小于0.65即可。</p>
+<blockquote>
+<p>残差在数理统计中是指实际<strong>观察值与估计值（拟合值）之间的差</strong></p>
+</blockquote>
+</li>
+<li><p>模型拟合和预测：</p>
+</li>
+</ul>
+<ul>
+<li>模型残差检验：</li>
+</ul>
+<blockquote>
+<h3 id="何为最小二乘法？"><a href="#何为最小二乘法？" class="headerlink" title="何为最小二乘法？"></a>何为最小二乘法？</h3></blockquote>
+<h2 id="Day2-主成分分析"><a href="#Day2-主成分分析" class="headerlink" title="Day2:主成分分析"></a>Day2:主成分分析</h2><ul>
+<li>前言：在实际问题的研究中，往往会涉及众多有关的变量。但是，变量太多不但会增加计算的复杂性，而且也给合理地分析问题和解释问题带来困难。一般来说，虽然每个变量提供了一定的信息，但其重要性有所不同，而在很多情况下，变量间有一定的相关性，从而使得这些变量所提供的信息在一定程度上有所重叠。对这些变量加以“改造”，用为数较少的互不相关的新变量来反映原来变量所提供的绝大部分信息，通过对新变量的分析达到解决问题的目的。主成分分析便是在这种降维的思想下产生的处理高维数据的方法。</li>
+<li>适用情形：<ol>
+<li>数据量庞大，拥有众多有关变量；</li>
+<li>需要从数据中提取较为重要的信息加以比较；</li>
+</ol>
+</li>
 </ul>
 
 
@@ -325,7 +169,7 @@ N_n(x)=f(x_0)+f[x_0,x_1](x-x_0)+f[x_0,x_1,x_2](x-x_0)(x-x_1)+\\
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2021/11/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/">计算机网络的复习<span class="note">Older</span></a><div class="line"></div><a id="prev" href="/2021/12/30/JAVA%E4%B9%A0%E9%A2%98%E7%BC%BA%E6%BC%8F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">undefined<span class="note">Newer</span></a><div class="line"></div><a id="more" href="/archives">All Articles</a></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2022/01/10/Let%20Us%20To%20Study%20Requests%20of%20Python/">undefined<span class="note">Older</span></a><div class="line"></div><div class="line"></div><a id="more" href="/archives">All Articles</a></section></div>
 
 
 
