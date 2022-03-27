@@ -116,7 +116,7 @@
 </li>
 <li><p>文件权限：rwx为权限，三组，分别对应用户(U)、同组用户(G)、其他用户(O)</p>
 <ul>
-<li>普通文件：- rw- rw- r– </li>
+<li>普通文件：- rw- rw- r— </li>
 <li>目录文件(开头为d)：d rwx rwx r-x</li>
 <li>权限更改：chmod 664 CAT1 为用户授权：(U)6：110；(G)6：110;(O)4:  100;</li>
 <li><a target="_blank" rel="noopener" href="https://www.linuxprobe.com/linux-file-permession.html">Linux文件权限管理方法</a></li>
@@ -133,15 +133,18 @@
 <li><p>硬链接和字符链接(软连接)：</p>
 <ul>
 <li><p>硬链接，可以认为是一个指向文件索引点的指针；</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost link]# touch SingleFile                ;新建一个空文件</span><br><span class="line">[root@localhost link]# ls -l</span><br><span class="line">total 0</span><br><span class="line">-rw-r--r-- 1 root root 0 Mar 30 17:48 SingleFile       ;空文件的链接数为1</span><br><span class="line">[root@localhost link]# ln SingleFile HardLinkFile</span><br><span class="line">[root@localhost link]# ls -l</span><br><span class="line">total 0</span><br><span class="line">-rw-r--r-- 2 root root 0 Mar 30 17:48 HardLinkFile     ;新文件的链接数为2</span><br><span class="line">-rw-r--r-- 2 root root 0 Mar 30 17:48 SingleFile       ;旧文件的链接数为2</span><br><span class="line">[root@localhost link]# echo &quot;Hello&quot; &gt; SingleFile         ;向旧文件中写入6个Bytes的字符串</span><br><span class="line">[root@localhost link]# ls -l</span><br><span class="line">total 8</span><br><span class="line">-rw-r--r-- 2 root root 6 Mar 30 17:49 HardLinkFile     ;新文件的大小变为6个Bytes</span><br><span class="line">-rw-r--r-- 2 root root 6 Mar 30 17:49 SingleFile       ;旧文件的大小变为6个Bytes</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost link]# touch SingleFile                ;新建一个空文件</span><br><span class="line">[root@localhost link]# ls -l</span><br><span class="line">total 0</span><br><span class="line">-rw-r--r-- 1 root root 0 Mar 30 17:48 SingleFile       ;空文件的链接数为1</span><br><span class="line">[root@localhost link]# ln SingleFile HardLinkFile</span><br><span class="line">[root@localhost link]# ls -l</span><br><span class="line">total 0</span><br><span class="line">-rw-r--r-- 2 root root 0 Mar 30 17:48 HardLinkFile     ;新文件的链接数为2</span><br><span class="line">-rw-r--r-- 2 root root 0 Mar 30 17:48 SingleFile       ;旧文件的链接数为2</span><br><span class="line">[root@localhost link]# echo &quot;Hello&quot; &gt; SingleFile         ;向旧文件中写入6个Bytes的字符串</span><br><span class="line">[root@localhost link]# ls -l</span><br><span class="line">total 8</span><br><span class="line">-rw-r--r-- 2 root root 6 Mar 30 17:49 HardLinkFile     ;新文件的大小变为6个Bytes</span><br><span class="line">-rw-r--r-- 2 root root 6 Mar 30 17:49 SingleFile       ;旧文件的大小变为6个Bytes</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>字符链接， 包含对另一个文件/目录 以绝对/相对 路径形式的引用，相当于快捷方式，其没有任何文件系统的限制。可跨越机器和网络；</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符链接命令：ln -s SingleFile SoftLinkFile</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符链接命令：ln -s SingleFile SoftLinkFile</span><br></pre></td></tr></table></figure>
+</li>
 <li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/LubinLew/p/LinuxFileLink.html">硬链接和字符链接</a></p>
 </li>
 </ul>
 </li>
 <li><p>文件备份：tar备份</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf etcbak.tar /etc</span><br><span class="line"><span class="meta">#</span><span class="bash">将etc目录下的文件备份；</span></span><br><span class="line">gzip etcbak.tar</span><br><span class="line"><span class="meta">#</span><span class="bash">生成压缩文件</span></span><br><span class="line">tar -zvcf etcbak.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash">加压缩和解备份</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf etcbak.tar /etc</span><br><span class="line"><span class="meta">#</span><span class="bash">将etc目录下的文件备份；</span></span><br><span class="line">gzip etcbak.tar</span><br><span class="line"><span class="meta">#</span><span class="bash">生成压缩文件</span></span><br><span class="line">tar -zvcf etcbak.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash">加压缩和解备份</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h2 id="二、Linux的系统和程序"><a href="#二、Linux的系统和程序" class="headerlink" title="二、Linux的系统和程序"></a>二、Linux的系统和程序</h2><ol>
 <li><p>linux内核分为：进程管理系统、内存管理系统、I/O管理系统和文件管理系统等四个子系统</p>
@@ -161,7 +164,8 @@
 <li><p>sh test.sh，编译并运行sh脚本文件</p>
 </li>
 <li><p>脚本文件格式：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">echo &quot;Hello World!&quot;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">echo &quot;Hello World!&quot;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>主要语法我决定另开一个文章进行讲解</p>
 </li>
 </ul>
@@ -177,124 +181,11 @@
 <li><p>进程：</p>
 <ul>
 <li><p>查看进程命令：</p>
-<table>
-<thead>
-<tr>
-<th align="left">命令</th>
-<th align="center">显示信息</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">ps -A</td>
-<td align="center">所有进程</td>
-</tr>
-<tr>
-<td align="left">ps -a</td>
-<td align="center">在当前环境下运行的进程，不包含环境信息</td>
-</tr>
-<tr>
-<td align="left">ps -u</td>
-<td align="center">显示进程用户信息</td>
-</tr>
-<tr>
-<td align="left">ps a</td>
-<td align="center">在当前环境中运行的进程</td>
-</tr>
-<tr>
-<td align="left">ps x</td>
-<td align="center">列出系统中所有运行包含tty输出设备</td>
-</tr>
-<tr>
-<td align="left">ps f</td>
-<td align="center">显示进程的父子关系</td>
-</tr>
-<tr>
-<td align="left">ps e</td>
-<td align="center">显示进程的详细信息</td>
-</tr>
-<tr>
-<td align="left">ps tree</td>
-<td align="center">显示进程树状图</td>
-</tr>
-</tbody></table>
+<p>| 命令    |                显示信息                |<br>| :——— | :——————————————————: |<br>| ps -A   |                所有进程                |<br>| ps -a   | 在当前环境下运行的进程，不包含环境信息 |<br>| ps -u   |            显示进程用户信息            |<br>| ps a    |         在当前环境中运行的进程         |<br>| ps x    |   列出系统中所有运行包含tty输出设备    |<br>| ps f    |           显示进程的父子关系           |<br>| ps e    |           显示进程的详细信息           |<br>| ps tree |             显示进程树状图             |</p>
 </li>
 <li><p>进程操作：</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ctrl + c</td>
-<td>终止并退出前台命令的执行，回到SHELL</td>
-</tr>
-<tr>
-<td>ctrl + z</td>
-<td>将当前应用打回环境后台</td>
-</tr>
-<tr>
-<td>jobs</td>
-<td>查看在后台执行的命令</td>
-</tr>
-<tr>
-<td>fg N(进程号)</td>
-<td>将后台的进程调回前台执行；</td>
-</tr>
-<tr>
-<td>bg N(进程号)</td>
-<td>将后台的停止进程激活，在后台执行</td>
-</tr>
-<tr>
-<td>kill 信号 进程pid</td>
-<td>对指定进程执行相关操作</td>
-</tr>
-<tr>
-<td>killall 信号 进程名字</td>
-<td>将输入名称的进程都关闭</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>kill信号</th>
-<th>信号作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>进程重新被加载</td>
-</tr>
-<tr>
-<td>2</td>
-<td>删除进程在内存中的数据</td>
-</tr>
-<tr>
-<td>3</td>
-<td>删除鼠标在内存中的数据</td>
-</tr>
-<tr>
-<td>9</td>
-<td>强行结束单个进程</td>
-</tr>
-<tr>
-<td>15</td>
-<td>正常关闭进程</td>
-</tr>
-<tr>
-<td>18</td>
-<td>运行暂停的进程</td>
-</tr>
-<tr>
-<td>19</td>
-<td>暂停某个进程</td>
-</tr>
-<tr>
-<td>20</td>
-<td>把进程打入后台</td>
-</tr>
-</tbody></table>
+<p>| 命令                  | 作用                                |<br>| ——————————- | —————————————————- |<br>| ctrl + c              | 终止并退出前台命令的执行，回到SHELL |<br>| ctrl + z              | 将当前应用打回环境后台              |<br>| jobs                  | 查看在后台执行的命令                |<br>| fg N(进程号)          | 将后台的进程调回前台执行；          |<br>| bg N(进程号)          | 将后台的停止进程激活，在后台执行    |<br>| kill 信号 进程pid     | 对指定进程执行相关操作              |<br>| killall 信号 进程名字 | 将输入名称的进程都关闭              |</p>
+<p>| kill信号 | 信号作用               |<br>| ———— | ——————————— |<br>| 1        | 进程重新被加载         |<br>| 2        | 删除进程在内存中的数据 |<br>| 3        | 删除鼠标在内存中的数据 |<br>| 9        | 强行结束单个进程       |<br>| 15       | 正常关闭进程           |<br>| 18       | 运行暂停的进程         |<br>| 19       | 暂停某个进程           |<br>| 20       | 把进程打入后台         |</p>
 </li>
 </ul>
 </li>
@@ -303,22 +194,22 @@
 <li><p>vi和vim的进入以及操作：</p>
 <ul>
 <li><p>进入vi/vim命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$vim test.txt      #当文件夹中没有该文件则创建该文件并进入命令行模式</span><br><span class="line">$vi test.txt</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$vim test.txt      #当文件夹中没有该文件则创建该文件并进入命令行模式</span><br><span class="line">$vi test.txt</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>vi/vim的三种模式：</p>
 <ul>
 <li>命令行模式：</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">进入命令行模式:</span><br><span class="line">插入模式中使用&#x27;ESC&#x27;进行回退至命令行模式</span><br><span class="line">末行模式中删除末行命令会自动切换会命令行模式</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>插入模式：</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">进入：在命令行模式中通过‘i’/&#x27;a&#x27;进入插入模式</span><br><span class="line">退出：在插入模式中通过&#x27;esc&#x27;退出插入模式</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>末行模式：</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在命令行模式下通过&#x27;:&#x27;进入末行模式</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在命令行模式下通过&#x27;:&#x27;进入末行模式</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>末行模式的几种指令：</p>
 <ul>
 <li>q:quit 退出</li>

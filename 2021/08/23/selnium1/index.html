@@ -87,9 +87,7 @@
 <p>导入selenium库；<br>将自动化测试工具 <strong>webdriver</strong> 赋值于新建变量 <strong>driver</strong> 中；</p>
 <p><strong>path</strong> 为chormedriver路径（此应用必须和chorme的版本相对应）；</p>
 <p><strong>url</strong>为网页网址；导入网址</p>
-<p>定位元素</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element = driver.find_element(element_name,element_characteristic)</span><br><span class="line"></span><br><span class="line">element = driver.find_element_by_id(&quot;id_element&quot;)</span><br></pre></td></tr></table></figure>
-<p>两种定位元素的方式结果相同，建议使用第一种，易与包装，功能性较强。</p>
+<p>定位元素<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element = driver.find_element(element_name,element_characteristic)</span><br><span class="line"></span><br><span class="line">element = driver.find_element_by_id(&quot;id_element&quot;)</span><br></pre></td></tr></table></figure><br>两种定位元素的方式结果相同，建议使用第一种，易与包装，功能性较强。</p>
 <p>可对 element 进行一些操作，如 点击 ，输入关键字等；</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">element.click()</span><br><span class="line">#点击操作</span><br><span class="line">element.send_keys(&quot;info&quot;)</span><br><span class="line">#输入字符串</span><br></pre></td></tr></table></figure>
 <h3 id="对element元素的定位问题"><a href="#对element元素的定位问题" class="headerlink" title="对element元素的定位问题"></a>对element元素的定位问题</h3><p>定位不到元素的具体原因（7种）：<br>1.元素未加载；<br>2.Frame中；<br>3.元素不可以用，不可以读，不可以见；<br>4.动态属性，动态div层；</p>
