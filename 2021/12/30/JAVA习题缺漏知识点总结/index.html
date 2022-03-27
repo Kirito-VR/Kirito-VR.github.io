@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/74260/AppData/Roaming/Typora/typora-user-images/image-20211230202451690.png">
 <meta property="article:published_time" content="2021-12-30T13:56:15.959Z">
-<meta property="article:modified_time" content="2022-01-09T12:54:28.265Z">
+<meta property="article:modified_time" content="2022-03-26T15:04:27.927Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/74260/AppData/Roaming/Typora/typora-user-images/image-20211230202451690.png">
@@ -115,6 +115,14 @@
 </li>
 <li><p>标识符规则</p>
 </li>
+<li><p>基本数据类型和引用数据类型在内存上的区别：</p>
+<ul>
+<li><p>类、接口和数组为引用数据类型；引用数据类型在堆里，基本数据类型在栈里，栈空间小且连续，往往放在缓存中，适合存放基本数据类型。</p>
+</li>
+<li><p>int[]类型属于引用数据类型，在内存中变量本身存储在栈中，值存储在堆中，栈中存储的是地址，指向值存储的堆中；</p>
+</li>
+</ul>
+</li>
 <li><p>变量类型运算：</p>
 <blockquote>
 <ul>
@@ -153,6 +161,27 @@
 <p>此外，在java中public类可以不存在，但存在必须唯一；</p>
 <p>public类的名称必须完全与含有该编译单元的文件名相同，包含大小写；</p>
 </blockquote>
+</li>
+<li><p>str.equals(String);中str必须存在，否则会出现空指针异常；</p>
+</li>
+<li><p>对于字节流和字符流：</p>
+<ul>
+<li>字节流：InputStream/OutStream</li>
+<li>字符流：Reader/Writer；</li>
+</ul>
+</li>
+<li><p>如果对同一个线程对象两次调用start()方法，在运行时会抛出一个异常；</p>
+</li>
+<li><p>Collection是java.util包下的接口，它是List和Set集合结构的父接口；</p>
+</li>
+<li><ul>
+<li><p>优先级高的并不一定会马上执行；</p>
+</li>
+<li><p>sleep方法会阻塞一个线程并不会终止；</p>
+</li>
+<li>创建一个新的线程时也不会终止另一个线程；</li>
+<li>当抛出一个异常后程序会结束，所以线程也会被终止。</li>
+</ul>
 </li>
 </ol>
 
