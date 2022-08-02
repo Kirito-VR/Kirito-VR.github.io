@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>CQmax-chen的个人博客</title>
+
+  
+    <meta name="description" content="SQL执行计划(Execution Plan)和分页性能 无排序 12SELECT * FROM (SELECT fownum rn,t.* FROM employees t) WHERE rn&gt;&#x3D;4 AND rn &lt;&#x3D;6;-- 这个执行计划中，进行了全表扫描； 12SELECT * FROM(SELECT rownum rn,t.* FROM employees t WHERE ro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CQmax-chen的个人博客">
+<meta property="og:url" content="http://example.com/2022/04/17/SQL%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92(Execution%20Plan)%E5%92%8C%E5%88%86%E9%A1%B5%E6%80%A7%E8%83%BD/index.html">
+<meta property="og:site_name" content="CQmax-chen的个人博客">
+<meta property="og:description" content="SQL执行计划(Execution Plan)和分页性能 无排序 12SELECT * FROM (SELECT fownum rn,t.* FROM employees t) WHERE rn&gt;&#x3D;4 AND rn &lt;&#x3D;6;-- 这个执行计划中，进行了全表扫描； 12SELECT * FROM(SELECT rownum rn,t.* FROM employees t WHERE ro">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-17T12:07:43.184Z">
+<meta property="article:modified_time" content="2022-04-23T04:10:02.146Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">CQmax-chen的个人博客</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92-Execution-Plan-%E5%92%8C%E5%88%86%E9%A1%B5%E6%80%A7%E8%83%BD"><span class="toc-text">SQL执行计划(Execution Plan)和分页性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2%EF%BC%89"><span class="toc-text">子查询（关联查询）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ROWID"><span class="toc-text">ROWID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Oracle%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="toc-text">Oracle的逻辑结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-text">索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E8%A1%A8"><span class="toc-text">数据库建表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE"><span class="toc-text">视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97"><span class="toc-text">序列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E5%A6%82%E4%BD%95%E4%BA%A7%E7%94%9F"><span class="toc-text">事务如何产生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E5%A6%82%E4%BD%95%E7%BB%93%E6%9D%9F"><span class="toc-text">事务如何结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-text">事务的隔离级别</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" title="GitHub" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/08a41b181ce68.svg"/></a><a class="social" title="Music" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/cf1ae151f9e83.svg"/></a><a class="social" title="Comments" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/942ebbf1a4b91.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2022-04-17T12:07:43.184Z">2022-04-17</time></div></div>
+
+<article class='content md post'>
+
+<h2 id="SQL执行计划-Execution-Plan-和分页性能"><a href="#SQL执行计划-Execution-Plan-和分页性能" class="headerlink" title="SQL执行计划(Execution Plan)和分页性能"></a>SQL执行计划(Execution Plan)和分页性能</h2><ul>
+<li><p>无排序</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> fownum rn,t.<span class="operator">*</span> <span class="keyword">FROM</span> employees t) <span class="keyword">WHERE</span> rn<span class="operator">&gt;=</span><span class="number">4</span> <span class="keyword">AND</span> rn <span class="operator">&lt;=</span><span class="number">6</span>;</span><br><span class="line"><span class="comment">-- 这个执行计划中，进行了全表扫描；</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span>(<span class="keyword">SELECT</span> rownum rn,t.<span class="operator">*</span> <span class="keyword">FROM</span> employees t <span class="keyword">WHERE</span> rownum<span class="operator">&lt;=</span><span class="number">6</span>) <span class="keyword">WHERE</span> rn<span class="operator">&gt;=</span><span class="number">4</span>;</span><br><span class="line"><span class="comment">-- 这个执行计划中，只查询了6行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有排序</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span>(<span class="keyword">SELECT</span> rownum rn,t.<span class="operator">*</span> <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">ORDER</span> <span class="keyword">BY</span> salary) t) <span class="keyword">WHERE</span> rn <span class="operator">&gt;=</span><span class="number">4</span> <span class="keyword">AND</span> rn<span class="operator">&lt;=</span><span class="number">6</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="子查询（关联查询）"><a href="#子查询（关联查询）" class="headerlink" title="子查询（关联查询）"></a>子查询（关联查询）</h2><ul>
+<li><p>找出哪些员工不是普通员工（大小是个领导）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 普通查询</span></span><br><span class="line"><span class="keyword">SELECT</span> t.empno</span><br><span class="line"><span class="keyword">FROM</span> SCOTT.emp e,SCOTT.emp t</span><br><span class="line"><span class="keyword">WHERE</span> e.mgr<span class="operator">=</span>t.empno</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 关联查询</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> SCOTT.emp <span class="keyword">outer</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> <span class="string">&#x27;X&#x27;</span> <span class="keyword">FROM</span> SCOTT.emp <span class="keyword">WHERE</span> mgr <span class="operator">=</span> outer.EMPNO);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="ROWID"><a href="#ROWID" class="headerlink" title="ROWID"></a>ROWID</h2><ul>
+<li><p>先扫描索引，找到ROWID</p>
+</li>
+<li><p>再用ROWID定位数据</p>
+<blockquote>
+<p>AAAR3x        AAE      AAAACX      AAA,</p>
+<p>对象ID              文件ID     块号          行号</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Oracle的逻辑结构"><a href="#Oracle的逻辑结构" class="headerlink" title="Oracle的逻辑结构"></a>Oracle的逻辑结构</h2><ul>
+<li><p>数据库</p>
+<p>包含多个表空间</p>
+</li>
+<li><p>表空间</p>
+<p>可以和1个或多个数据文件关联</p>
+<p>包含多个段（表段、索引段、）</p>
+</li>
+<li><p>段</p>
+<p>表段(主要数据存放处，表数据)、索引段（存放表数据索引）、回滚段（Rollback）（对所执行操作对象进行临时存储）；</p>
+</li>
+<li><p>盘区</p>
+</li>
+<li><p>数据块，默认8192（是电脑硬盘的整数倍）</p>
+</li>
+</ul>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><blockquote>
+<p>提问：索引的利和弊</p>
+<ul>
+<li>提高查询速度，减少内存占用；加速查询</li>
+<li>索引会占用物理储存空间（索引段的存在）</li>
+<li>当进行删除和插入时，索引段需要进行及时的更新，增加更新的时间；</li>
+</ul>
+<p>原理：</p>
+<ul>
+<li>索引表—找到相应的RowID—-&gt;通过RowID物理ID扫描查找数据；</li>
+</ul>
+<p>索引类型：</p>
+<ul>
+<li>index range scan 索引局部扫描（提供了例如：&lt;,&gt;,&gt;=,&lt;=,&lt;&gt;,between）等进行范围约束</li>
+<li>index unique scan 索引唯一扫描</li>
+<li>index Full scan  </li>
+</ul>
+</blockquote>
+<ol>
+<li><p>索引的使用与禁用</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> emp</span><br><span class="line"><span class="keyword">WHERE</span> deptno <span class="operator">=</span> <span class="number">20</span> <span class="keyword">AND</span> sal<span class="operator">&gt;</span><span class="number">1000</span>;</span><br><span class="line"><span class="comment">-- 在没建立索引前，仍然会使用Table Access Full进行查询</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建索引，数据库会默认使用此索引</span></span><br><span class="line"><span class="keyword">CREATE</span>  INDEX deptno_idx <span class="keyword">ON</span> emp(deptno);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 警用索引</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="comment">/*+ NO_INDEX(emp deptno_idx)*/</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> emp</span><br><span class="line"><span class="keyword">WHERE</span> deptno <span class="operator">=</span><span class="number">20</span> <span class="keyword">AND</span> sal <span class="operator">&gt;</span> <span class="number">1000</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>事务两种操作：</p>
+<ol>
+<li>提交；COMMIT;</li>
+<li>回滚；ROLLBACK;</li>
+</ol>
+<ul>
+<li>Oracle的默认隔离级别：提交读；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="数据库建表"><a href="#数据库建表" class="headerlink" title="数据库建表"></a>数据库建表</h2><ul>
+<li><p>```sql<br>CREATE TABLE prodcut(</p>
+<pre><code>product_id NUMBER(5),
+product_name VARCHAR2(100),
+product_price NUMBER(8,2)
+</code></pre><p>);<br>— 创建商品表；<br>— 插入数据；<br>INSERT INTO product Values(11111,’手机’,50000);<br>INSERT INTO product Values(11112,’手机膜’,5);</p>
+<p>— 修改表结构,添加主键<br>ALTER TABLE product ADD CONSTRAINT PK_PRODUCT PRIMARY KEY(product_id)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ```sql</span><br><span class="line">  -- 库存表</span><br><span class="line">  CREATE TABLE stock(</span><br><span class="line">  	stock_id number(5),</span><br><span class="line">      stock_num number(5),</span><br><span class="line">      product_id number(5)</span><br><span class="line">  );</span><br><span class="line">  </span><br><span class="line">  -- 添加外键；</span><br><span class="line">  ALTER TABLE stock ADD CONSTRAINT FK_PRODUCT_id FOREIGN KEY(product_id) references product(product_id);</span><br><span class="line">  -- </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><blockquote>
+<p>视图是一个虚拟的表，不占用物理空间</p>
+<p>作用：</p>
+<ul>
+<li>提高数据的操作效率，</li>
+<li>增加安全性，通过视图的规范性输出，对数据有着有效的保护；</li>
+<li>主要用于进行查询，极少数进行更新删除；</li>
+<li>提高表的逻辑独立性，可通过多表创建视图，</li>
+</ul>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建视图</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> viewname <span class="keyword">AS</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> [参数列表] <span class="keyword">FROM</span> [数据表列]</span><br><span class="line">    <span class="keyword">WHERE</span> [条件语句]</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 视图删除</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span> viewname;</span><br></pre></td></tr></table></figure>
+<h2 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h2><blockquote>
+<p>什么是序列？</p>
+<p>Auto Increment: 自增</p>
+<p>Oracle数据库没有自增功能，需要借助序列+触发器实现ID的自增</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建序列</span></span><br><span class="line"><span class="keyword">CREATE</span> SEQUENCE dept_seq <span class="keyword">START</span> <span class="keyword">WITH</span> <span class="number">50</span> INCREMENT <span class="keyword">BY</span> <span class="number">10</span> NOMAXVALUE NOCYCLE NOCACHE;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- </span></span><br></pre></td></tr></table></figure>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="事务如何产生"><a href="#事务如何产生" class="headerlink" title="事务如何产生"></a>事务如何产生</h3><p>执行增、删、改操作会自动生成事务；</p>
+<h3 id="事务如何结束"><a href="#事务如何结束" class="headerlink" title="事务如何结束"></a>事务如何结束</h3><ol>
+<li>commit提交</li>
+<li>Rollback回滚</li>
+</ol>
+<h3 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h3><ol>
+<li>未提交读：事务未结束而进行了读操作，导致无法正确看到已经修改后的数据；（会出现：读脏数据）</li>
+<li>提交读：</li>
+<li>序列化读</li>
+<li>可重复读</li>
+</ol>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2022/04/16/Java%E7%9A%84IO%E5%92%8CXML%E8%A7%A3%E6%9E%90/">Java的IO和XML解析<span class="note">Older</span></a><div class="line"></div><a id="prev" href="/2022/04/17/%E6%A1%86%E6%9E%B6/">undefined<span class="note">Newer</span></a><div class="line"></div><a id="more" href="/archives">All Articles</a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      Join the discussion
+    </div>
+    <div class='cmt-body valine'>
+      
+
+<div id="valine_container" class="valine_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/">分类</a><a href="/">标签</a><a href="/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/">开源库</a><a href="/">实用脚本</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/">友链</a><a href="/">留言板</a><a href="/">Spotify</a><a href="/">Unsplash</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/Kirito-VR">GitHub</a></div></div><div class="text"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</p>
+<p>This site was deployed by <a href="http://example.com/">@John Doe</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.2" title="v1.4.2">Stellar</a>. You can find the source code in <a target="_blank" rel="noopener" href="https://github.com/Kirito-VR">GitHub</a>.</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.2';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper/swiper-bundle.min.css","js":"https://unpkg.com/swiper/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function getEmojiMaps() {
+    function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+    }
+    var emojiMaps = {};
+    for (var i = 1; i <= 54; i++) {
+      emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+    }
+    for (var i = 1; i <= 101; i++) {
+      emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+    }
+    for (var i = 1; i <= 116; i++) {
+      emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+    }
+    for (var i = 1; i <= 125; i++) {
+      emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+    }
+    for (var i = 1; i <= 4; i++) {
+      emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+    }
+    return emojiMaps;
+  }
+  function load_comment(){
+    if(!document.getElementById("valine_container"))return;
+    stellar.loadScript('https://cdn.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/js/Valine.min.js', {defer:true}).then(function () {
+      const el = document.getElementById("valine_container");
+      var path = el.getAttribute('comment_id');
+      const placeholder = "";
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+      var valine = new Valine();
+      valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/js/Valine.min.js","appId":"yRi7gt9H8s1Htup1TcS4b4lg-gzGzoHsz","appKey":"512frESF4VUrcrVurxRNyVHs","placeholder":null,"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":true,"tagMeta":["博主","小伙伴","访客"],"metaPlaceholder":{"nick":"1050087164","mail":"1050087164@qq.com","link":"https://github.com/Kirito-VR"},"master":["6783037F2DF30EAB99F9FC256157D875"],"friends":["6783037F2DF30EAB99F9FC256157D875"]}, {
+        el: '#valine_container',
+        path: path,
+        placeholder: placeholder,
+        emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+        emojiMaps: getEmojiMaps(),
+      }));
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

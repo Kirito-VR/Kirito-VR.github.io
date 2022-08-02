@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>CQmax-chen的个人博客</title>
+
+  
+    <meta name="description" content="Vue是MVVM架构，响应式，轻量级框架主要特点：  轻量级；SPA（single page appliction）:单页模式 双向数据绑定； 指令； 组件化； 客户端路由； 状态管理；  Vue 环境搭建 下载Node.js  链接：https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F;download&#x2F;releases&#x2F;版本：14.16.1文件名称：node-v14.16.1-x64.msi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CQmax-chen的个人博客">
+<meta property="og:url" content="http://example.com/2022/07/15/VueStudy/index.html">
+<meta property="og:site_name" content="CQmax-chen的个人博客">
+<meta property="og:description" content="Vue是MVVM架构，响应式，轻量级框架主要特点：  轻量级；SPA（single page appliction）:单页模式 双向数据绑定； 指令； 组件化； 客户端路由； 状态管理；  Vue 环境搭建 下载Node.js  链接：https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F;download&#x2F;releases&#x2F;版本：14.16.1文件名称：node-v14.16.1-x64.msi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/07/15/VueStudy/src">
+<meta property="article:published_time" content="2022-07-15T07:09:07.359Z">
+<meta property="article:modified_time" content="2022-07-16T10:30:31.925Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/07/15/VueStudy/src">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">CQmax-chen的个人博客</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue%E7%9B%AE%E5%BD%95%E8%A7%A3%E6%9E%90"><span class="toc-text">Vue目录解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-text">vue基础语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E8%AF%AD%E5%8F%A5"><span class="toc-text">插值语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue%E6%8C%87%E4%BB%A4"><span class="toc-text">Vue指令</span></a></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" title="GitHub" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/08a41b181ce68.svg"/></a><a class="social" title="Music" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/cf1ae151f9e83.svg"/></a><a class="social" title="Comments" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/942ebbf1a4b91.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2022-07-15T07:09:07.359Z">2022-07-15</time></div></div>
+
+<article class='content md post'>
+
+<h1 id="Vue是MVVM架构，响应式，轻量级框架"><a href="#Vue是MVVM架构，响应式，轻量级框架" class="headerlink" title="Vue是MVVM架构，响应式，轻量级框架"></a>Vue是MVVM架构，响应式，轻量级框架</h1><p>主要特点：</p>
+<ol>
+<li>轻量级；SPA（single page appliction）:单页模式</li>
+<li>双向数据绑定；</li>
+<li>指令；</li>
+<li>组件化；</li>
+<li>客户端路由；</li>
+<li>状态管理；</li>
+</ol>
+<h1 id="Vue-环境搭建"><a href="#Vue-环境搭建" class="headerlink" title="Vue 环境搭建"></a>Vue 环境搭建</h1><ul>
+<li><p>下载Node.js</p>
+<blockquote>
+<p>链接：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/releases/">https://nodejs.org/zh-cn/download/releases/</a><br>版本：14.16.1<br>文件名称：node-v14.16.1-x64.msi</p>
+</blockquote>
+</li>
+<li><p>安装Node.js<br>一路next即可；</p>
+</li>
+<li>安装Vue</li>
+</ul>
+<blockquote>
+<p>npm install -g @vue/cli</p>
+</blockquote>
+<ul>
+<li>查看vue是否安装成功<br>vue —version</li>
+</ul>
+<h1 id="Vue的脚手架（Vue-Cli）"><a href="#Vue的脚手架（Vue-Cli）" class="headerlink" title="Vue的脚手架（Vue-Cli）"></a>Vue的脚手架（Vue-Cli）</h1><blockquote>
+<p>创建Vue项目的工具</p>
+</blockquote>
+<ul>
+<li><p>命令安装</p>
+<blockquote>
+<p>vue crete demo</p>
+<ul>
+<li>选择Vue2或者Vue3或者自定义配置(Manually select features)</li>
+<li>(自定义配置)选择配置项目</li>
+<li>Babel:es6 转 es5</li>
+<li>TypeScipt</li>
+<li>Progressive Web App (PWA) Support</li>
+<li>Router:路由</li>
+<li>Vuex:数据容器，存储共享数据</li>
+<li>CSS Pre-processors:CSS 预处理器，后面会提示你选择 less、sass、stylus 等</li>
+<li>Linter/Promatter:代码格式校验</li>
+<li>Unit Testing</li>
+<li>E2E Testing</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default):</p>
+<blockquote>
+<p>Sass/SCSS (with dart-sass):选择 CSS 预处理器，这里选择的 Less</p>
+</blockquote>
+</li>
+<li>Where do you perfer placeing config for Babel,ESlint,etc?()<blockquote>
+<p>In dedicated config files：分别保存到单独的配置文件<br>In package.json：保存到 package.json 文件中</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Vue目录解析"><a href="#Vue目录解析" class="headerlink" title="Vue目录解析"></a>Vue目录解析</h2><ul>
+<li><p>public</p>
+<ul>
+<li>子文件</li>
+<li>子文件</li>
+</ul>
+</li>
+<li><p>src</p>
+<ul>
+<li>main.js:入口 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;createApp&#125; from <span class="string">&quot;vue&quot;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">	</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>package.json</li>
+</ul>
+<blockquote>
+<p>RequireJS：将js模块化</p>
+</blockquote>
+<h2 id="vue基础语法"><a href="#vue基础语法" class="headerlink" title="vue基础语法"></a>vue基础语法</h2><ul>
+<li>export命令:将元素暴露；</li>
+<li>定义数据<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">   </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="插值语句"><a href="#插值语句" class="headerlink" title="插值语句"></a>插值语句</h2><h2 id="Vue指令"><a href="#Vue指令" class="headerlink" title="Vue指令"></a>Vue指令</h2><ul>
+<li>v-pre:将内语句原封不动，如插值语句，在此指令下无效化；</li>
+<li>v-text:</li>
+<li>v-html:<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-html</span>=<span class="string">&quot;url&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>vue-once:使用初始值，不会随着变量改变而改变</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-once</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--只会使用初始值，不会随着变量改变而改变--&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>v-bind:属性值绑定,可以简写成“:”，称之为“语法糖”；</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure>
+<template>
+<img class="lazy" v-bind:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="src="src">
+<a :href="url"></a>
+<div :style="对象">桂林电子科技大学</div>
+</template>
+
+</li>
+</ul>
+<Script>
+export default{
+    name:temp,
+    data(){
+    return{
+        src:"https://v3.cn.vuejs.org/logo.png",
+        url:"http://www.baidu.com",
+        对象:{
+            'background':'red',
+            'font-size':20px
+        }
+    }
+    }
+}
+</Script>
+
+<p><style><br>.first{<br>    background:aqua;<br>}</p>
+<p>.second{<br>    font-size:20px;<br>}<br>&lt;/style&gt;<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">- v-for:对象数组循环载入；</span><br><span class="line"> </span><br><span class="line">​```html</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;table&gt;</span><br><span class="line">		&lt;tr v-for=&quot;book in books&quot; :key=&quot;book.id&quot;&gt;</span><br><span class="line">			&lt;td&gt;&#123;&#123;book.id&#125;&#125;&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;&#123;&#123;book.name&#125;&#125;&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;&#123;&#123;book.price&#125;&#125;&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;</span><br><span class="line">				&lt;button&gt;-&lt;/button&gt;</span><br><span class="line">				&lt;input type=&quot;text&quot; value=&#x27;0&#x27;/&gt;</span><br><span class="line">				&lt;button&gt;+&lt;/button&gt;</span><br><span class="line">				</span><br><span class="line">			&lt;/td&gt;</span><br><span class="line">		&lt;/tr&gt;</span><br><span class="line">	&lt;/table&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;Script&gt;</span><br><span class="line">export default&#123;</span><br><span class="line">	name:temp,</span><br><span class="line">	data()&#123;</span><br><span class="line">	return&#123;</span><br><span class="line">		books:[</span><br><span class="line">			&#123;id:&#x27;1111&#x27;,name:&#x27;java编程思想&#x27;,price:109&#125;,</span><br><span class="line">			&#123;id:&#x27;2222&#x27;,name:&#x27;Spring&#x27;,price:109&#125;,</span><br><span class="line">			&#123;id:&#x27;3333&#x27;,name:&#x27;MySql并发&#x27;,price:109&#125;			</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/Script&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>v-if:对象数组循环载入；</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">&quot;wxPay&quot;</span>&gt;</span>微信付款<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span>支付宝付款<span class="tag">&lt;/<span class="name">div</span>&gt;</span>	</span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="attr">name</span>:temp,</span></span><br><span class="line"><span class="javascript">	<span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="javascript">		<span class="attr">wxPay</span>:<span class="literal">true</span></span></span><br><span class="line"><span class="javascript">	&#125;</span></span><br><span class="line"><span class="javascript">	&#125;</span></span><br><span class="line"><span class="javascript">&#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">Script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Vue的事件和JavaScript的事件"><a href="#Vue的事件和JavaScript的事件" class="headerlink" title="Vue的事件和JavaScript的事件"></a>Vue的事件和JavaScript的事件</h2></li>
+<li>闭包<blockquote>
+<p>函数也是值<br>函数也可以当作参数传递<br>函数还可以当作返回值<br>闭包：函数以及函数所依赖的环境</p>
+</blockquote>
+</li>
+</ul>
+<p>Vue事件冒泡停止样例(在@click此事件后面加入.stop)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;d1&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;m1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;d2&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;m2&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;b1&quot;</span> @<span class="attr">click.stop</span>=<span class="string">&quot;m3&quot;</span>&gt;</span>事件<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><br>Vue事件自身触发才会调用样例(在@click此事件后面加入.self)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;d1&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;m1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;d2&quot;</span> @<span class="attr">click.self</span>=<span class="string">&quot;m2&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;b1&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;m3&quot;</span>&gt;</span>事件<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>Vue事件触发捕获执行才会调用样例(在@click此事件后面加入.capture)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;d1&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;m1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;d2&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;m2&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;b1&quot;</span> @<span class="attr">click.capture</span>=<span class="string">&quot;m3&quot;</span>&gt;</span>事件<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><br>Vue事件传入事件对象(在m3参数中加入$event)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;d1&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;m1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;d2&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;m2&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;b1&quot;</span> @<span class="attr">click.capture</span>=<span class="string">&quot;m3($event)&quot;</span>&gt;</span>事件<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h2><blockquote>
+<p>通过事件进行获取该对象从而改变该对象，@change:当内容改变时<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">:value</span>=<span class="string">&quot;address&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;address=$event.target.value&quot;</span> &gt;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><blockquote>
+<p>新版javaScript新特性</p>
+<ul>
+<li>var、let、const的区别</li>
+<li>字符串</li>
+<li>数组新增拓展</li>
+<li>对象</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>var 和let</p>
+<ul>
+<li><p>var存在变量提升（在运行前先执行了声明变量操作）;</p>
+</li>
+<li><p>let没有上述功能；</p>
+</li>
+<li>let不看重复声明同名变量；</li>
+<li>let存在块级作用域：列如let在if语句块内进行声明的，出来if语句块即无法使用；</li>
+<li>函数作用域</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>let应用</li>
+<li>模板字符串</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">scritpt</span>&gt;</span></span><br><span class="line">	var a = `abc`;</span><br><span class="line">    var b = `桂电`;</span><br><span class="line">    var c = `ccc$&#123;b&#125;ddd`;</span><br><span class="line">    // 其中的$&#123;b&#125;即为引用b字符串；定义模板字符串需要只用的引号应该是“`”；</span><br><span class="line">    console.log(c);</span><br><span class="line"><span class="tag">&lt;/<span class="name">scritpt</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>对象解构赋值</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">scritpt</span>&gt;</span></span><br><span class="line">	var [a,b,c] =[10,20,30];// 类似python的多赋值，多返回情况；</span><br><span class="line">    </span><br><span class="line">    var &#123;_id,_name,_address&#125; = &#123;id:1,&#x27;name&#x27;:&quot;张三&quot;,&#x27;address&#x27;:&quot;桂林&quot;&#125;;</span><br><span class="line">    </span><br><span class="line">    console.log&#123;_id,_address,_name&#125;// 可直接如此赋值，解开对象数据结构，再将对象解开的值输入定义的参数列表中；</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">scritpt</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>数组赋值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> b = a;<span class="comment">//数组复制</span></span><br><span class="line"><span class="keyword">var</span> c = [...a];<span class="comment">//复制一个数组</span></span><br><span class="line"><span class="comment">// 其中的$&#123;b&#125;即为引用b字符串；定义模板字符串需要只用的引号应该是“`”；</span></span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>选项式语法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="title">dafualt</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>箭头函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f1=<span class="function"><span class="params">a</span>=&gt;</span>a;<span class="comment">//一个函数，参数叫a，返回a;</span></span><br><span class="line"><span class="keyword">let</span> f2=<span class="function">(<span class="params">a</span>)=&gt;</span>a;<span class="comment">//如果箭头函数只有一个参数，括号可省略；</span></span><br><span class="line"><span class="keyword">let</span> f3=<span class="function">(<span class="params">a,b,c</span>)=&gt;</span>a+b+c;<span class="comment">// 函数有3个参数。返回3个函数之和；</span></span><br><span class="line"><span class="keyword">let</span> f4=<span class="function">()=&gt;</span>(&#123;<span class="attr">name</span>:<span class="string">&quot;zhangsan&quot;</span>&#125;);<span class="comment">//ES6的方式返回JSON;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>axios</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">&quot;https://xxxxx/list&quot;</span>)</span><br><span class="line">    .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;<span class="comment">//处理成功的情况)</span></span><br><span class="line">    .catch(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Promise</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> test=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> isSuccess = <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;进入setTimeout时间&quot;</span>);</span><br><span class="line">        isSuccess = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(isSuccess)&#123;</span><br><span class="line">        	resolve(<span class="string">&quot;数据请求成功！&quot;</span>);</span><br><span class="line">    	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            reject(<span class="string">&quot;网络连接失败&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,<span class="number">2000</span>);    </span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;结果：&quot;</span>,res);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;结果：&quot;</span>+err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2022/07/07/Spring%E5%AD%A6%E4%B9%A0_2/">Spring学习<span class="note">Older</span></a><div class="line"></div><a id="prev" href="/2022/07/21/SpringSecurity/">undefined<span class="note">Newer</span></a><div class="line"></div><a id="more" href="/archives">All Articles</a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      Join the discussion
+    </div>
+    <div class='cmt-body valine'>
+      
+
+<div id="valine_container" class="valine_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/">分类</a><a href="/">标签</a><a href="/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/">开源库</a><a href="/">实用脚本</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/">友链</a><a href="/">留言板</a><a href="/">Spotify</a><a href="/">Unsplash</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/Kirito-VR">GitHub</a></div></div><div class="text"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</p>
+<p>This site was deployed by <a href="http://example.com/">@John Doe</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.2" title="v1.4.2">Stellar</a>. You can find the source code in <a target="_blank" rel="noopener" href="https://github.com/Kirito-VR">GitHub</a>.</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.2';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper/swiper-bundle.min.css","js":"https://unpkg.com/swiper/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function getEmojiMaps() {
+    function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+    }
+    var emojiMaps = {};
+    for (var i = 1; i <= 54; i++) {
+      emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+    }
+    for (var i = 1; i <= 101; i++) {
+      emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+    }
+    for (var i = 1; i <= 116; i++) {
+      emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+    }
+    for (var i = 1; i <= 125; i++) {
+      emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+    }
+    for (var i = 1; i <= 4; i++) {
+      emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+    }
+    return emojiMaps;
+  }
+  function load_comment(){
+    if(!document.getElementById("valine_container"))return;
+    stellar.loadScript('https://cdn.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/js/Valine.min.js', {defer:true}).then(function () {
+      const el = document.getElementById("valine_container");
+      var path = el.getAttribute('comment_id');
+      const placeholder = "";
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+      var valine = new Valine();
+      valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/js/Valine.min.js","appId":"yRi7gt9H8s1Htup1TcS4b4lg-gzGzoHsz","appKey":"512frESF4VUrcrVurxRNyVHs","placeholder":null,"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":true,"tagMeta":["博主","小伙伴","访客"],"metaPlaceholder":{"nick":"1050087164","mail":"1050087164@qq.com","link":"https://github.com/Kirito-VR"},"master":["6783037F2DF30EAB99F9FC256157D875"],"friends":["6783037F2DF30EAB99F9FC256157D875"]}, {
+        el: '#valine_container',
+        path: path,
+        placeholder: placeholder,
+        emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+        emojiMaps: getEmojiMaps(),
+      }));
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
