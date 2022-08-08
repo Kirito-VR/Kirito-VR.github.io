@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>CQmax-chen的个人博客</title>
+
+  
+    <meta name="description" content="面试题目学习+深入了解Vue模块  模块分为了： 题目 答案 自己所总结的答案     @https:&#x2F;&#x2F;kirito-vr.github.io 说一说Vuex是什么，每个属性是干嘛的，如何使用 ？  标准答案： Vuex是集中管理项目公共数据的 Vuex 有state、mutations 、getters、actions、module属性。  state 属性用来存储公共管理的数据。  muta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CQmax-chen的个人博客">
+<meta property="og:url" content="http://example.com/2022/08/04/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E5%AD%A6%E4%B9%A0+%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3/index.html">
+<meta property="og:site_name" content="CQmax-chen的个人博客">
+<meta property="og:description" content="面试题目学习+深入了解Vue模块  模块分为了： 题目 答案 自己所总结的答案     @https:&#x2F;&#x2F;kirito-vr.github.io 说一说Vuex是什么，每个属性是干嘛的，如何使用 ？  标准答案： Vuex是集中管理项目公共数据的 Vuex 有state、mutations 、getters、actions、module属性。  state 属性用来存储公共管理的数据。  muta">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-04T12:24:09.677Z">
+<meta property="article:modified_time" content="2022-08-07T14:11:00.958Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">CQmax-chen的个人博客</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3"><span class="toc-text">面试题目学习+深入了解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue%E6%A8%A1%E5%9D%97"><span class="toc-text">Vue模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#https-kirito-vr-github-io"><span class="toc-text">@https:&#x2F;&#x2F;kirito-vr.github.io</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#QQ%EF%BC%9A898340574"><span class="toc-text">QQ：898340574</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"> </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QQ-3187144070"><span class="toc-text">QQ:3187144070</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React%E6%A8%A1%E5%9D%97"><span class="toc-text">React模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#https-kirito-vr-github-io-1"><span class="toc-text">@https:&#x2F;&#x2F;kirito-vr.github.io</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringBoot%E6%A8%A1%E5%9D%97"><span class="toc-text">SpringBoot模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#https-kirito-vr-github-io-2"><span class="toc-text">@https:&#x2F;&#x2F;kirito-vr.github.io</span></a></li></ol></li></ol></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" title="GitHub" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/08a41b181ce68.svg"/></a><a class="social" title="Music" href="https://github.com/Kirito-VR" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/cf1ae151f9e83.svg"/></a><a class="social" title="Comments" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/942ebbf1a4b91.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2022-08-04T12:24:09.677Z">2022-08-04</time></div></div>
+
+<article class='content md post'>
+
+<h2 id="面试题目学习-深入了解"><a href="#面试题目学习-深入了解" class="headerlink" title="面试题目学习+深入了解"></a>面试题目学习+深入了解</h2><h3 id="Vue模块"><a href="#Vue模块" class="headerlink" title="Vue模块"></a>Vue模块</h3><blockquote>
+<ul>
+<li>模块分为了：<ul>
+<li>题目</li>
+<li>答案</li>
+<li>自己所总结的答案</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="https-kirito-vr-github-io"><a href="#https-kirito-vr-github-io" class="headerlink" title="@https://kirito-vr.github.io"></a>@<a target="_blank" rel="noopener" href="https://kirito-vr.github.io">https://kirito-vr.github.io</a></h4><ul>
+<li><p><strong>说一说Vuex是什么，每个属性是干嘛的，如何使用 ？</strong></p>
+<ul>
+<li><p><strong>标准答案：</strong></p>
+<p>Vuex是集中管理项目公共数据的</p>
+<p>Vuex 有state、mutations 、getters、actions、module属性。</p>
+<p> state 属性用来存储公共管理的数据。 </p>
+<p>mutations 属性定义改变state中数据的方法， 注意：不要在mutation中的方法中写异步方法ajax，那样数据就不可跟踪了 。 </p>
+<p>getters 属性可以认为是定义 store 的计算属性。就像计算属性一样，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。 </p>
+<p>action属性类似于 mutation，不同在于：Action 提交的是 mutation，而不是直接变更状态。</p>
+<p>Action 可以包含任意异步操作。 </p>
+<p>moudle属性是将store分割成模块。</p>
+<p>每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块，从上至下进行同样方式的分割 使用方法： state ：直接以对象方式添加属性 mutations ：通过<code>store.commit</code>调用 action：通过 <code>store.dispatch</code> 方法触发 getters：直接通过store.getters.调用 </p>
+<p>加分回答 可以使用mapState、mapMutations、mapAction、mapGetters一次性获取每个属性下对应的多个方法。 </p>
+<p>VueX在大型项目中比较常用，非关系组件传递数据比较方便。</p>
+</li>
+<li><p><strong>自我总结：</strong></p>
+<p>Vuex是一个前端Vue框架用于管理公共数据资源的，包含的属性有:state(主要是负责存储公共数据)、mutation(存放了对state数据进行操作的方法，在mutation里不建议进行异步方式调用)、action(可以调用mutation中的方法，相较于mutation，action里面的方法可以执行异步操作)、getter(存放获取state内数据的方法)、module(是将store划分为几个模块，每个模块里面都各自包含了state\mutation\action)；</p>
+</li>
+</ul>
+</li>
+<li><p><strong>说一说computed和watch的区别？</strong></p>
+<ul>
+<li><p><strong>标准答案：</strong></p>
+<p>computed： 是计算属性，依赖其它属性值，并且 computed 的值有缓存，只有它依赖的属性值发生改变，下一次获取 computed 的值时才会重新计算 computed 的值； watch： 更多的是观察的作用，支持异步，类似于某些数据的监听回调 ，每当监听的数据变化时都会执行回调进行后续操作； 加分回答 computed应用场景：需要进行数值计算，并且依赖于其它数据时，应该使用 computed，因为可以利用 computed 的缓存特性，避免每次获取值时，都要重新计算； watch应用场景：需要在数据变化时执行异步或开销较大的操作时，应该使用 watch，使用 watch 选项允许我们执行异步操作 ( 访问一个 API )，限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这些都是计算属性无法做到的。</p>
+</li>
+<li><p><strong>自我总结：</strong></p>
+<p>computed:作为计算属性，依赖其绑定的属性值，随着属性值发生了改变，在下一次获取computed的值时才会重新计算computed相应的值，computed适用于模块内的数值计算，因为其值有着缓存属性，可在下一次调用时直接计算，不需再次进行取值操作，但面对数据较大，操作需及时更新时，则需要运用上watch进行对属性的监听，watch会在数据变化后执行异步或开销较大的操作。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>说一说vue钩子函数？</strong></p>
+<ul>
+<li><p><strong>标准答案：</strong></p>
+<p>钩子函数用来描述一个组件从引入到退出的全过程中的某个过程，整个过程称为生命周期。 钩子函数按照组件生命周期的过程分为，挂载阶段=&gt;更新阶段=&gt;销毁阶段。 每个阶段对应的钩子函数 </p>
+<p>挂载阶段：beforeCreate、created、beforeMounted、mounted </p>
+<p>更新阶段：beforeUpdate、updated </p>
+<p>销毁阶段：beforeDestroy、destroyed </p>
+<p>每个阶段特点与适合做什么 </p>
+<p>created：实例创建完成，可访问data、computed、watch、methods上的方法和数据，未挂载到DOM，不能访问到el属性，el属性，ref属性内容为空数组常用于简单的ajax请求，页面的初始化 </p>
+<p>beforeMount：在挂载开始之前被调用，beforeMount之前，会找到对应的template，并编译成render函数 </p>
+<p>mounted：实例挂载到DOM上，此时可以通过DOM API获取到DOM节点，$ref属性可以访问常用于获取VNode信息和操作，ajax请求</p>
+<p> beforeupdate：响应式数据更新时调用，发生在虚拟DOM打补丁之前，适合在更新之前访问现有的DOM，比如手动移除已添加的事件监听器 </p>
+<p>updated：虚拟 DOM 重新渲染和打补丁之后调用，组件DOM已经更新，可执行依赖于DOM的操作避免在这个钩子函数中操作数据，可能陷入死循环 </p>
+<p>beforeDestroy：实例销毁之前调用。这一步，实例仍然完全可用，this仍能获取到实例，常用于销毁定时器、解绑全局事件、销毁插件对象等操作 </p>
+<p>加分回答 父子组件钩子函数在三个阶段的代码执行顺序 </p>
+<p>挂载：父亲created&gt; 子created &gt; 子mounted&gt; 父亲mounted&gt; 更新：父亲beforeUpdate &gt; 子beforeUpdated &gt; 子updated &gt; 父亲updated 销毁：父亲beforeDestroy&gt; 子beforeDestroy &gt; 子destroyed&gt; 父destroyed</p>
+</li>
+<li><p><strong>自我总结：</strong></p>
+<p>钩子函数主要用于组件的引用到退出的全过程，整个过程称为生命周期，钩子函数按照组件生命周期的过程分为，挂载阶段&gt;更新阶段&gt;销毁阶段；</p>
+<p>在挂载阶段中又细分为：beforeCreate&gt;Created&gt;beforeMounted&gt;mounted</p>
+<p>在更新阶段中又细分为：beforeUpdate&gt;updated;</p>
+<p>在销毁阶段中又细分为：beforeDestroy&gt;destroyed;</p>
+<p>在这些细分的阶段中，主要起作用的阶段为</p>
+<ol>
+<li>created：示例模块创建完成，但只能访问data,computed\watch以及mothod上面的方法和数据、由于无法访问element，也就无法挂载到DOM上，</li>
+<li>beforeMount:在挂载开始之前调用，在挂载之前，寻找相应的template并编译成render函数</li>
+<li>mounted:将示例模块挂载到DOM上，此时可以通过DOM API获得DOM节点，$ref属性可以访问到常用于获取VNode信息和操作jax请求；</li>
+<li>beforeUpdate:响应式数据更新时调用，发生在虚拟DOM打补丁之前，适合在更新之前访问现有的DOM，比如手动移除已添加的事件监听器；</li>
+<li>updated：DOM重新渲染后调用，此时组件DOM已经更新；</li>
+<li>beforeDestory：模块销毁之前调用。这一步，模块仍然完全可用，this仍可获得到模块，常用于销毁定时器，解绑全局事件、销毁插件对象等操作；</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="QQ：898340574"><a href="#QQ：898340574" class="headerlink" title="QQ：898340574"></a>QQ：898340574</h4><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="QQ-3187144070"><a href="#QQ-3187144070" class="headerlink" title="QQ:3187144070"></a>QQ:3187144070</h3><blockquote>
+<p>Vue模块</p>
+</blockquote>
+<ul>
+<li><p>说一说 Vue 列表为什么加 key？</p>
+<ul>
+<li><p>标准回答：</p>
+<p>为了性能优化 因为vue是虚拟DOM，更新DOM时用diff算法对节点进行一一比对，比如有很多li元素，要在某个位置插入一个li元素，但没有给li上加key，那么在进行运算的时候，就会将所有li元素重新渲染一遍，但是如果有key，那么它就会按照key一一比对li元素，只需要创建新的li元素，插入即可，不需要对其他元素进行修改和重新渲染。 加分回答 key也不能是li元素的index，因为假设我们给数组前插入一个新元素，它的下标是0，那么和原来的第一个元素重复了，整个数组的key都发生了改变，这样就跟没有key的情况一样了</p>
+</li>
+<li><p>我的总结：</p>
+<p>不使用key的时候，更新列表的时候，所有的元素都会被重新渲染，加上key，key所对应的值如果有变化才会重新渲染，一般key的值绑定的都是唯一值，比如id，一般不和index绑定，因为在插入数据的时候，后面的index都会改变，导致后面的元素都会被重新渲染</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="React模块"><a href="#React模块" class="headerlink" title="React模块"></a>React模块</h3><h4 id="https-kirito-vr-github-io-1"><a href="#https-kirito-vr-github-io-1" class="headerlink" title="@https://kirito-vr.github.io"></a>@<a target="_blank" rel="noopener" href="https://kirito-vr.github.io">https://kirito-vr.github.io</a></h4><ol>
+<li>setState是同步还是异步的？<ul>
+<li>得分点 是同步也是异步、合成事件、生命周期函数、原生事件、定时器 标准回答 setState在合成事件和生命周期函数中是异步的，在原生事件和定时器中都是同步的。 加分回答 setState本身不分同步或者异步，而是取决于是否处于batch update中。组件中的所有函数在执行时临时设置一个变量isBatchingUpdates = true，当遇到setState时，如果isBatchingUpdates是true，那么setState就是异步的，如果是false，那么setState就是同步的。那么什么时候isBatchingUpdates会被设置成false呢？ - 当函数运行结束时isBatchingUpdates = false - 当函数遇到setTimeout、setInterval时isBatchingUpdates = false - 当dom添加自定义事件时isBatchingUpdates = false</li>
+</ul>
+</li>
+</ol>
+<h3 id="SpringBoot模块"><a href="#SpringBoot模块" class="headerlink" title="SpringBoot模块"></a>SpringBoot模块</h3><h4 id="https-kirito-vr-github-io-2"><a href="#https-kirito-vr-github-io-2" class="headerlink" title="@https://kirito-vr.github.io"></a>@<a target="_blank" rel="noopener" href="https://kirito-vr.github.io">https://kirito-vr.github.io</a></h4><ol>
+<li><p>说说你对MVC的理解</p>
+<ul>
+<li><p>标准答案</p>
+<p>MVC是一种设计模式,在这种模式下软件被分为三层,即Model（模型）、View（视图）、Controller（控制器）。Model代表的是数据,View代表的是用户界面,Controller代表的是数据的处理逻辑,它是Model和View这两层的桥梁。将软件分层的好处是,可以将对象之间的耦合度降低,便于代码的维护。 Model：指从现实世界中抽象出来的对象模型,是应用逻辑的反应；它封装了数据和对数据的操作,是实际进行数据处理的地方（模型层与数据库才有交互）。在MVC的三个部件中,模型拥有最多的处理任务。被模型返回的数据是中立的,模型与数据格式无关,这样一个模型能为多个视图提供数据,由于应用于模型的代码只需写一次就可以被多个视图重用,所以减少了代码的重复性。 View：负责进行模型的展示,一般就是我们见到的用户界面。 Controller：控制器负责视图和模型之间的交互,控制对用户输入的响应、响应方式和流程；它主要负责两方面的动作,一是把用户的请求分发到相应的模型,二是吧模型的改变及时地反映到视图上。</p>
+</li>
+<li><p>自我总结</p>
+<p>MVC是一种设计模式，主要内容为：Model（模型层）、View（视图层）、Controller（控制层）；该设计模式的各个部分的分工为：View：负责对模型的展示，数据的展示，也就是用户接触得到的用户界面，Model：模型层，负责数据的处理以及数据的封装操作，模型所返回的数据是中立的，一个模型可以被多个controller调用并传给不同的View进行渲染。Controller层是控制器负责视图和模型之间的交互。控制对View层传入的不同数据进行响应调用不同的model，将请求分发到相应的model上，后将model返回的改变，发送给View进行渲染映射。</p>
+</li>
+</ul>
+</li>
+<li><p>说说你对AOP的理解</p>
+<ul>
+<li><p>标准答案</p>
+<p>AOP是一种编程思想,是通过预编译方式和运行期动态代理的方式实现不修改源代码的情况下给程序动态统一添加功能的技术。面向对象编程将程序抽象成各个层次的对象,而面向切面编程是将程序抽象成各个切面。所谓切面,相当于应用对象间的横切点,我们可以将其单独抽象为单独的模块。 AOP技术利用一种称为“横切”的技术,剖解开封装对象的内部,将影响多个类的公共行为封装到一个可重用的模块中,并将其命名为切面。所谓的切面,简单来说就是与业务无关,却为业务模块所共同调用的逻辑,将其封装起来便于减少系统的重复代码,降低模块的耦合度,有利用未来的可操作性和可维护性。 利用AOP可以对业务逻辑各个部分进行隔离,从而使业务逻辑各部分之间的耦合度降低,提高程序的可重用性,同时提高开发效率。 AOP可以有多种实现方式,而Spring AOP支持如下两种实现方式。 - JDK动态代理：这是Java提供的动态代理技术,可以在运行时创建接口的代理实例。Spring AOP默认采用这种方式,在接口的代理实例中织入代码。 - CGLib动态代理：采用底层的字节码技术,在运行时创建子类代理的实例。当目标对象不存在接口时,Spring AOP就会采用这种方式,在子类实例中织入代码。 加分回答 在应用场景方面,Spring AOP为IoC的使用提供了更多的便利,一方面,应用可以直接使用AOP的功能,设计应用的横切关注点,把跨越应用程序多个模块的功能抽象出来,并通过简单的AOP的使用,灵活地编制到模块中,比如可以通过AOP实现应用程序中的日志功能。另一方面,在Spring内部,例如事务处理之类的一些支持模块也是通过Spring AOP来实现的。 AOP不能增强的类： 1. Spring AOP只能对IoC容器中的Bean进行增强,对于不受容器管理的对象不能增强。 2. 由于CGLib采用动态创建子类的方式生成代理对象,所以不能对final修饰的类进行代理。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2022/07/28/Taro+React%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">undefined<span class="note">Older</span></a><div class="line"></div><div class="line"></div><a id="more" href="/archives">All Articles</a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      Join the discussion
+    </div>
+    <div class='cmt-body valine'>
+      
+
+<div id="valine_container" class="valine_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/">分类</a><a href="/">标签</a><a href="/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/">开源库</a><a href="/">实用脚本</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/">友链</a><a href="/">留言板</a><a href="/">Spotify</a><a href="/">Unsplash</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/Kirito-VR">GitHub</a></div></div><div class="text"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</p>
+<p>This site was deployed by <a href="http://example.com/">@John Doe</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.2" title="v1.4.2">Stellar</a>. You can find the source code in <a target="_blank" rel="noopener" href="https://github.com/Kirito-VR">GitHub</a>.</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.2';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper/swiper-bundle.min.css","js":"https://unpkg.com/swiper/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function getEmojiMaps() {
+    function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+    }
+    var emojiMaps = {};
+    for (var i = 1; i <= 54; i++) {
+      emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+    }
+    for (var i = 1; i <= 101; i++) {
+      emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+    }
+    for (var i = 1; i <= 116; i++) {
+      emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+    }
+    for (var i = 1; i <= 125; i++) {
+      emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+    }
+    for (var i = 1; i <= 4; i++) {
+      emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+    }
+    return emojiMaps;
+  }
+  function load_comment(){
+    if(!document.getElementById("valine_container"))return;
+    stellar.loadScript('https://cdn.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/js/Valine.min.js', {defer:true}).then(function () {
+      const el = document.getElementById("valine_container");
+      var path = el.getAttribute('comment_id');
+      const placeholder = "";
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+      var valine = new Valine();
+      valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/js/Valine.min.js","appId":"yRi7gt9H8s1Htup1TcS4b4lg-gzGzoHsz","appKey":"512frESF4VUrcrVurxRNyVHs","placeholder":null,"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":true,"tagMeta":["博主","小伙伴","访客"],"metaPlaceholder":{"nick":"1050087164","mail":"1050087164@qq.com","link":"https://github.com/Kirito-VR"},"master":["6783037F2DF30EAB99F9FC256157D875"],"friends":["6783037F2DF30EAB99F9FC256157D875"]}, {
+        el: '#valine_container',
+        path: path,
+        placeholder: placeholder,
+        emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+        emojiMaps: getEmojiMaps(),
+      }));
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
